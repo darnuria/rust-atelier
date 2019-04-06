@@ -36,7 +36,7 @@ fn main() {
     let prenom = "axel";
 //  ^                  ^
 //  |                  | Notez le `;` il sert à dire qu'on a
-//  |                    fini de décrire notre «instrction» on reviendra dessus!
+//  |                    fini de décrire notre «instruction» on reviendra dessus!
 //  |
 //  \ Le mot clé `let` sert à dire à Rust associe l'identifiant ici
 // `prenom` à la valeur d'expression ici la chaine de caractères `"axel"`.
@@ -56,6 +56,24 @@ fn main() {
 
     // On peut faire la même chose avec des nombres:
     let age = 26;
-    println!("{} a {} c'est un bon age pour programmer.", prenom, age);
+    println!("{} a {} ans, c'est un bon age pour programmer.", prenom, age);
     // Tout age est bon pour programmer. ;)
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// indices: Vous pouvez tenter de faire avec un seul appel à println! !
