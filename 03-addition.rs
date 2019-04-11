@@ -23,15 +23,15 @@
 // En Rust les expressions portent un type et comme l'expression populaire suivante
 // le dit: On ne peux pas additionner les choux et les carottes.
 //
-// Jusque ici nous avons manipuler les types &str, i32, et les fonctions qui sont un
-// type un peyu avancé. ;)
+// Jusque ici nous avons manipuler les types &str (texte), i32 (nombre entiers), et les fonctions qui sont un
+// type un peu avancé. ;)
 
 
 fn main() {
     // L'objectif est de faire une addition entre deux entiers en Rust! Rien de bien terrible!
     let somme = '3' + 3;
-    // Oh non! Une erreur s'est glisée dans notre programme!
-    // Par inavertance j'ai taper la chaine de caractère "3" et non le nombre 3!
+    // Oh non! Une erreur s'est glissée dans notre programme!
+    // Par inadvertance j'ai tapé la chaine de caractère '3' et non le nombre 3 !
     // Compilons ce programme et voyons si rustc peut nous aider!
     println!("{}", somme);
 }
