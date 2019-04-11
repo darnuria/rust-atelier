@@ -29,7 +29,7 @@
 
 fn main() {
     // L'objectif est de faire une addition entre deux entiers en Rust! Rien de bien terrible!
-    let somme = "3" + 3;
+    let somme = '3' + 3;
     // Oh non! Une erreur s'est glisée dans notre programme!
     // Par inavertance j'ai taper la chaine de caractère "3" et non le nombre 3!
     // Compilons ce programme et voyons si rustc peut nous aider!
