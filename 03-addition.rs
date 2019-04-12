@@ -13,9 +13,6 @@
 // - Découvrir le garde de fou qu'apporte le typage
 // - Résoudre une erreur de typage
 // - Manipuler des nombres
-//
-// /!\ Quand vous verrez les symboles: `???`, il s'agit de code à
-// complêter soit même c'est normal que rust indique une erreur! :)
 // -----------------------------------------------------------------------------
 
 
@@ -23,15 +20,36 @@
 // En Rust les expressions portent un type et comme l'expression populaire suivante
 // le dit: On ne peux pas additionner les choux et les carottes.
 //
-// Jusque ici nous avons manipuler les types &str (texte), i32 (nombre entiers), et les fonctions qui sont un
-// type un peu avancé. ;)
+// Jusque ici nous avons manipuler les types:
+// - `&str` (les chaînes de caractères),
+// - `i32` (nombre entiers),
+// - les fonctions qui sont un type un peu avancé ;)
 
 
 fn main() {
     // L'objectif est de faire une addition entre deux entiers en Rust! Rien de bien terrible!
+
+
+    //-------------------------------------------------------------------------
+    // Quelques «commentaires gesticulés» pour comprendre:
+    //
+    //           '3' est du type `char`
+    //           ⬇
     let somme = '3' + 3;
-    // Oh non! Une erreur s'est glissée dans notre programme!
-    // Par inadvertance j'ai tapé la chaine de caractère '3' et non le nombre 3 !
+    //   ^          ^ ^
+    //   |          | \ 3 est du type i32.
+    //   |          |
+    //   |          \ Ici `+` fait l'addition entre un i32 et un i32 et
+    //   |            et le résultat sera un i32.
+    //   |
+    //   \ Rust n'arrive donc pas à trouver un bon type pour `somme`,
+    //     car '3' n'est pas un `i32` !
+    //-------------------------------------------------------------------------
+
+
+    // Oh non! Une erreur s'est glisée dans notre programme à la ligne 38.
+    // Par inadvertance, j'ai tapé le caractère '3' au lieu de 3.
+
     // Compilons ce programme et voyons si rustc peut nous aider!
     println!("{}", somme);
 }
@@ -66,13 +84,17 @@ fn main() {
 // indice: rustc addition.rs
 
 /*
-error[E0369]: binary operation `+` cannot be applied to type `&str`
---> addition.rs:23:17
-|
-23 |     let somme = "3" + 3;
-|                 ^^^^^^^
-|
-= note: an implementation of `std::ops::Add` might be missing for `&str`
+error[E0369]: binary operation `+` cannot be applied to type `char`
+  --> 03-addition.rs:32:17
+   |
+32 |     let somme = '3' + 3;
+   |                 ^^^^^^^
+   |
+   = note: an implementation of `std::ops::Add` might be missing for `char`
+
+error: aborting due to previous error
+
+For more information about this error, try `rustc --explain E0369`.
 */
 
-// On peut résoudre notre problème en changeant "3" par juste 3.
+// On peut résoudre notre problème en changeant '3' par juste 3.
