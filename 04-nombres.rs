@@ -14,13 +14,13 @@
 // - Approfondissement variables
 // - Découverte du formattage
 // - Concept d'expression
-// - opérations entre types
+// - Opérations entre types
 //
 // Bonus écrire une fonction pour assurer la conversion
 // - Découverte des Fonctions
 //
 // /!\ Quand vous verrez les symboles: `???`, il s'agit de code à
-// complêter soit même c'est normal que rust indique une erreur! :)
+// completer soit-même c'est normal que Rust indique une erreur! :)
 // -----------------------------------------------------------------------------
 
 
@@ -28,23 +28,23 @@
  * Notre programme va réaliser une conversion d'une temperature en degrées
  * Fahrenheit vers les degrées Celsius.
  *
- * Pour convertir entre ces deux unité on peut utiliser l'équivalence que -40°C
+ * Pour convertir entre ces deux unités on peut utiliser l'équivalence que -40°C
  * est égal à -40°F.
  * Avec la formule suivante:
- * 
+ *
  *  (f + 40)
  *  -------- - 40 = c
  *    1.8
- * Ou `f` est une temparature en degrée Fahrenheit et `c` est une temparature en degrée celsius.
+ * Ou `f` est une température en degrée Fahrenheit et `c` est une température en degrée celsius.
  */
 fn main() {
-    // On associe avec let -40 à la variable fahrenheit.
+    // On associe, avec let, -40 à la variable fahrenheit.
     let fahrenheit = -40;
 
     //-------------------------------------------------
-    // Ci dessous on va faire notre conversion en rust:
+    // Ci-dessous on va faire notre conversion en Rust:
 
-    // Memo des opérateurs d'arithmètiques sur les nombres courants
+    // Mémo des opérateurs d'arithmétique sur les nombres courants
     // ---------------------------------
     // | Opérateur | Fonction          |
     // ---------------------------------
@@ -54,7 +54,7 @@ fn main() {
     // | a / b     | Division          |
     // ---------------------------------
     // Petite découverte du typage:
-    // a et b sont des nombres ici! En rust les expressions tel que 5 ont un type
+    // a et b sont des nombres ici! En Rust une expression telle que 5 a un type
     // ici le type `i32` et on ne peut pas additionner un `i32` avec n'importe
     // quel autre type, tel que une chaine de caratère.
 

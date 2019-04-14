@@ -7,10 +7,9 @@
 //
 // Dans ce programme on va découvrir comment résoudre une erreur de typage,
 // c'est une erreur classique qui vous arrivera souvent! Donc on va le découvrir ensemble.
-//
 // Objectifs pédagogiques:
 //
-// - Découvrir le garde de fou qu'apporte le typage
+// - Découvrir le garde-fou qu'apporte le typage
 // - Résoudre une erreur de typage
 // - Manipuler des nombres
 // -----------------------------------------------------------------------------
@@ -20,7 +19,7 @@
 // En Rust les expressions portent un type et comme l'expression populaire suivante
 // le dit: On ne peux pas additionner les choux et les carottes.
 //
-// Jusque ici nous avons manipuler les types:
+// Jusqu'ici nous avons manipulé les types:
 // - `&str` (les chaînes de caractères),
 // - `i32` (nombre entiers),
 // - les fonctions qui sont un type un peu avancé ;)
@@ -47,7 +46,7 @@ fn main() {
     //-------------------------------------------------------------------------
 
 
-    // Oh non! Une erreur s'est glisée dans notre programme à la ligne 38.
+    // Oh non ! Une erreur s'est glisée dans notre programme à la ligne 38.
     // Par inadvertance, j'ai tapé le caractère '3' au lieu de 3.
 
     // Compilons ce programme et voyons si rustc peut nous aider!
