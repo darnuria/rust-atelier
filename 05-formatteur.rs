@@ -33,7 +33,7 @@ fn main() {
     // On peut utiliser le formateur `{:p}`
 
     // Déclarons un vecteur:
-    // Ceux-ci se déclarent grâce à la macro vect![]
+    // Ceux-ci se déclarent grâce à la macro vec![]
     let vector = vec![1,2,3];
 
     // Si on essaye d'en afficher le contenus grâce au formatteur `{}`
