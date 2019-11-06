@@ -20,12 +20,12 @@
 // completer soit-même c'est normal que Rust indique une erreur! :)
 // -----------------------------------------------------------------------------
 
-
 // Steps:
 // 0. On fait la somme avec une boucle
 // 1. on fait la somme sur un vector!
 // 2. On extrait dans une fonction
-// 3. On refait avec une closure et une fonction d'ordre supérieur
+// 2.1 On utilise une slice plutôt que une reférence sur un vecteur
+// 3. On refait avec une closure et une fonction d'ordre supérieur (fold)
 
 fn main() {
     let sum;
@@ -38,8 +38,6 @@ fn main() {
 
     println!("Somme: {}", sum);
 }
-
-
 
 
 
