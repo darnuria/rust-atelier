@@ -46,7 +46,7 @@ fn main() {
     //-------------------------------------------------------------------------
 
 
-    // Oh non ! Une erreur s'est glisée dans notre programme à la ligne 38.
+    // Oh non ! Une erreur s'est glissée dans notre programme à la ligne 38.
     // Par inadvertance, j'ai tapé le caractère '3' au lieu de 3.
 
     // Compilons ce programme et voyons si rustc peut nous aider!
