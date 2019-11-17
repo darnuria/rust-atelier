@@ -33,7 +33,7 @@ fn main() {
 
     // Range incluant 0 jusque à 10 exclusif,
     // si on veut inclusif on utilise ..=
-    for ? in 0..10 {
+    for ??? in 0..10 {
         sum += i;
     }
 
