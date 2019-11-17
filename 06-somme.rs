@@ -20,7 +20,8 @@
 // completer soit-même c'est normal que Rust indique une erreur! :)
 // -----------------------------------------------------------------------------
 
-// Steps:
+// Étapes:
+//
 // 0. On fait la somme avec une boucle
 // 1. on fait la somme sur un vector!
 // 2. On extrait dans une fonction
