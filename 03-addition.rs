@@ -17,7 +17,7 @@
 
 // Typage 101:
 // En Rust les expressions portent un type et comme l'expression populaire suivante
-// le dit: On ne peux pas additionner les choux et les carottes.
+// le dit: On ne peut pas additionner les choux et les carottes.
 //
 // Jusqu'ici nous avons manipulé les types:
 // - `&str` (les chaînes de caractères),

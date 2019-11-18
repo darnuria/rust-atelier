@@ -6,7 +6,7 @@
 // struct.rs
 //
 // Dans cet exercice on va écrire notre première fonction pour manipuler un
-// vecteur et ensuite on découvrira que l'ont peut le faire avec une fonction
+// vecteur et ensuite on découvrira que l'on peut le faire avec une fonction
 // anonyme.
 //
 //

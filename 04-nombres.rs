@@ -5,8 +5,8 @@
 //
 // nombres.rs
 //
-// Dans cet exercice vous allez réaliser un convertiseur de degrée Fahrenheit
-// vers les degrées Celsius.
+// Dans cet exercice vous allez réaliser un convertiseur de degrés Fahrenheit
+// vers les degrés Celsius.
 //
 // Objectifs pédagogiques:
 //
@@ -25,8 +25,8 @@
 
 
 /*
- * Notre programme va réaliser une conversion d'une temperature en degrées
- * Fahrenheit vers les degrées Celsius.
+ * Notre programme va réaliser une conversion d'une temperature en degrés
+ * Fahrenheit vers les degrés Celsius.
  *
  * Pour convertir entre ces deux unités on peut utiliser l'équivalence que -40°C
  * est égal à -40°F.
@@ -35,7 +35,7 @@
  *  (f + 40)
  *  -------- - 40 = c
  *    1.8
- * Ou `f` est une température en degrée Fahrenheit et `c` est une température en degrée celsius.
+ * Ou `f` est une température en degrés Fahrenheit et `c` est une température en degrés celsius.
  */
 fn main() {
     // On associe, avec let, -40 à la variable fahrenheit.

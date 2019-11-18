@@ -51,7 +51,7 @@ fn main() {
     // `println!`est une macro car son nom est suivi d'un `!`.
     // Une macro est un moyen de créer un sous-programme,
     // à la compilation pour résoudre un calcul, pour nous
-    // à l'heure actuel ce n'est pas très important.
+    // à l'heure actuelle ce n'est pas très important.
     // On fera comme si c'était une fonction classique!
 
     // On peut faire la même chose avec des nombres:

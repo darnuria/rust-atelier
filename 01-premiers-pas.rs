@@ -25,7 +25,7 @@
 
 // En Rust pour écrire des choses ignorées par le «compilateur» qui transforme
 // ce fichier en code machine on peut écrire des commentaires (comme toutes les lignes
-// çi-dessus) elles doivent commencer par // ou être englobée entre /* et */.
+// ci-dessus) elles doivent commencer par // ou être englobées entre /* et */.
 
 /* <- Ceci est aussi un commentaire.
    mais sur plusieurs lignes */

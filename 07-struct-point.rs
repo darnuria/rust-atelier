@@ -14,7 +14,7 @@
 // - Découverte des structures
 // - Découverte de la syntaxe pour faire des méthodes
 // - self
-// - passage par référence(borrowing), copie  et semantiques de mouvement (move)
+// - passage par référence(borrowing), copie et semantiques de mouvement (move)
 //
 // /!\ Quand vous verrez les symboles: `???`, il s'agit de code à
 // completer soit-même c'est normal que Rust indique une erreur! :)
@@ -27,8 +27,8 @@
 // 2. On associe la fonction `new` avec un bloc `impl Point2D {}`
 // 2. On crée une fonction `add` qui fait l'addition de 2 `Points2D`, `self` et  `p`
 // 2.0 Observer ce qui se passe si on tente de réutiliser un des deux arguments de `add`!
-// 2.1 On reprends `add` pour prendre par référence `self` et `p`
-// 2.2 Écrire quelques test pour nos fonctions
+// 2.1 On reprend `add` pour prendre par référence `self` et `p`
+// 2.2 Écrire quelques tests pour nos fonctions
 
 /// Structure pour représenter un point 2D dans l'espace
 struct Point2D {
@@ -52,7 +52,7 @@ fn main() {
     
 }
 
-// Pour commencer à écrire les test il faudra décomenter le bloc çi dessous:
+// Pour commencer à écrire les tests il faudra décomenter le bloc ci-dessous:
 /*
 #[cfg(test)]
 mod tests {
