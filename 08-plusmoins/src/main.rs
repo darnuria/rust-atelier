@@ -25,9 +25,9 @@
 // Étapes:
 //
 // - Fixer le programme pour qu'il compile
-// - Faire une boucle afficher un message succès echec
-// - Convertir la lecture sur l'entrée standard en nombre
-//   indices :
+// - Faire une boucle `loop`, afficher un message en cas de succès et un en cas d'échec
+// - Convertir les caractères lu sur l'entrée standard en nombre
+//   Indices :
 //   - std::string::String::trim() 
 //   - std::string::String::parse()
 // - Faire afficher plus ou moins selon que l'essai soit plus grand ou petit que le nombre
