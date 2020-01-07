@@ -1,10 +1,15 @@
 [package]
-name = "ffi-python"
+name = "pytrix"
 version = "0.1.0"
 authors = ["Mon Email <mon_courriel@provier.com>"]
 edition = "2018"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+ndarray = "0.13.0"
+ndarray-csv = "0.4.0"
+csv = "1"
 
 [lib]
 crate-type = ["cdylib"]
@@ -12,3 +17,6 @@ crate-type = ["cdylib"]
 [dependencies.pyo3]
 version = "0.8.5"
 features = ["extension-module"]
+
+[package.metadata.maturin]
+requires-dist = ["flask~=1.1.0", "toml==0.10.0"]

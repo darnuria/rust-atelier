@@ -1,58 +1,68 @@
-struct Matrix64 {
-    len: usize,
-    mat: Box<[[i32; 64]; 64]>,
+extern crate csv;
+extern crate ndarray;
+
+use pyo3::prelude::*;
+use pyo3::wrap_pyfunction;
+
+use ndarray::{arr2, Array2};
+use std::{
+    fs::File,
+    io::{self, BufRead, BufReader},
+    path::Path,
+};
+
+use ndarray_csv::Array2Reader;
+
+/// Temporary high lvl doc:
+/// 
+/// Show a minimal exemple for reusing some rust part in order to expose
+/// it to python.
+/// 
+/// Construct two dimentionnal matrices from csv.
+/// Then expose the dot product.
+
+
+// TODO: Change signature for handling error instead of panic.
+fn parse_arr2(path: impl AsRef<Path>) -> Array2<i32> {
+    let file = match File::open(path.as_ref()) {
+        Err(why) => panic!("I had some issues with opening {}", path.as_ref().display()),
+        Ok(file) => file,
+    };
+
+    let mut reader = csv::ReaderBuilder::new()
+        .has_headers(false)
+        .from_reader(file);
+    let array: Array2<i32> = reader
+        .deserialize_array2((16, 16))
+        .expect("Whoups still panicking!");
+
+    array
 }
 
-impl Matrix64 {
-    fn new_with_array(mat: Box<[[i32; 64]; 64]>, len: usize) -> Matrix64 {
-        Matrix64 {
-            len,
-            mat
-        }
+/// Wrapping «manually» some function of a Rust crate for python.
+#[pyclass(module = "pytrix")]
+struct PyTrix {
+    handle: Array2<i32>,
+}
+
+#[pymethods]
+impl PyTrix {
+    #[new]
+    fn new(obj: &PyRawObject, csv_filename: String) {
+        obj.init(PyTrix {
+            handle: parse_arr2(csv_filename),
+        })
     }
 
-    // Bonus implement a new_with_value or new_random or a macro to create
-    // a matrix.
-    fn new() -> Matrix64 {
-        Self::new_with_array(
-            Box::new([[0i32; 64]; 64]),
-            64,
-        )
-    }
-
-    fn len(&self) -> usize {
-        self.len
-    }
-
-    /// Multiply two matrix
-    ///
-    /// This function panics if the length of squared matrix `self` is not
-    /// equals to colomn number of matrix `other`.
-    /// Bonus: implementing Mul trait https://doc.rust-lang.org/std/ops/trait.Mul.html
-    ///
-    /// Further reading:
-    /// https://fr.wikipedia.org/wiki/Produit_matriciel
-    fn mul(&self, other: &Matrix64) -> Matrix64 {
-        let len = self.len();
-
-        let mut res = Box::new([[0i32; 64]; 64]);
-
-        let a = self.mat;
-        let b = self.mat;
-
-        let squared_len = len * len;
-
-        for i in 0..squared_len {
-            for j in 0..squared_len {
-                for k in 0..squared_len {
-                    res[i][k] = a[j][i] * b[k][j];
-                }
-            }
-        }
-        Self::new_with_array(res, 64)
+    fn mul(&self, py: Python<'_>, other: &PyTrix) -> PyResult<PyTrix> {
+        let product = self.handle.dot(&other.handle);
+        let pythonized = PyTrix { handle: product };
+        Ok(pythonized)
     }
 }
 
-fn process() {
-    
+#[pymodule]
+fn pytrix(_py: Python<'_>, m: &PyModule) -> PyResult<()> {
+    m.add_class::<PyTrix>()?;
+    Ok(())
 }
