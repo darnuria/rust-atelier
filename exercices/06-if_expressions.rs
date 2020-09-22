@@ -7,7 +7,8 @@
 // Dans cet exerice, on va découvrir le if en Rust qui permet
 // d'exprimer des conditions, il existe en deux versions principales
 // Le if-expressionnel qui renvoie une valeur et imperatif
-// comme vous avez vu en C.
+// comme vous avez vu en C dans cet exercice on va se focaliser sur le if
+// expressionnel.
 //
 // Si vous avez déjà fait du Ocaml rien de nouveau!
 //
@@ -16,8 +17,12 @@
 // - Retour sur les expressions
 // - différences Expression / Instruction
 // - Retourner une valeur d'une fonction
-// - Cadriciel de test intégré `mod test`
+// - Infrastructure de test intégré au langage avec `mod test`
 // - macro `assert_eq!` et `unimplemented!`
+// - manipuler l'operateur du modulo: https://doc.rust-lang.org/book/appendix-02-operators.html
+//
+// Bonus: faire une fonction `is_leap_year_no_if` avec juste une expression
+// booleenne.
 //
 // -----------------------------------------------------------------------------
 
@@ -27,26 +32,26 @@
 
 /// Cette fonction envoie `true` si l'année passée en paramètre est bissextile
 /// sinon `false`.
-/// 
+///
 /// ## Algorithme
-/// 
+///
 /// Une année est bisextile si elle est:
 ///
 /// * Divisible par 4
-/// * Mais Pas divisible par 100, 
+/// * Mais Pas divisible par 100,
 ///     * Sauf si elle est aussi divisible par 400
-/// 
+///
 /// ## Arguments
-/// 
+///
 /// * `year`: represente une année en décimal comme `2020`.
-/// 
+///
 /// ## Exemples
 /// ```rust
 /// assert_eq!(is_leap_year(1, false))
 /// assert_eq!(is_leap_year(4, true))
 /// assert_eq!(is_leap_year(2400, true))
 /// ```
-fn is_leap_year(year: u32) -> bool { 
+fn is_leap_year(year: u32) -> bool {
     // Cette macro crash le programme si appellée pratique pour écrire
     // un skelette de fonction et ensuite programmer.
     unimplemented!("C'est à vous de jouer! ;)")
