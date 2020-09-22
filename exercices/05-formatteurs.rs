@@ -1,9 +1,9 @@
 // -----------------------------------------------------------------------------
-// Atelier Rust Journée du Logiciel Libre
-// 2019-04-06 - 13h -> 13h45
-// Participant: Charles Gueunet
+// Programation avancée - exercice 2020
+// Intervenant: Axel Viala (darnuria) axel@darnuria.eu
+// Co-auteur de l'exercice: Charles Gueunet
 //
-// formatteur.rs
+// 05-formatteur.rs
 //
 // On a vu dans les exercices précédents qu'il est possible d'afficher dans
 // le terminal la valeur d'une variable ou la valeur pointée par une
@@ -28,7 +28,7 @@ fn main() {
     // Pour ne pas déréférencer la variable mais afficher l'adresse
     // vers laquelle elle point on peut utiliser le formatteur {:p}
     //                                        ↓↓
-    println!("Notre entier est à l'adresse:  {:p}", reference);
+    println!("Notre entier est à l'adresse:  {}", reference);
 
     // Déclarons un vecteur:
     // Ceux-ci se déclarent grâce à la macro vec![]
@@ -42,7 +42,7 @@ fn main() {
 
     // A la place, il nous faut utiliser un formatteur de debug,
     // tel que {:?} ou {:#?}
-    println!("Voici le vector: {:#?}", vector);
+    println!("Voici le vector: {}", vector);
 }
 
 

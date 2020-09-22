@@ -1,6 +1,6 @@
 // -----------------------------------------------------------------------------
-// Atelier Rust
-// 2019-11-17 - 14h -> 16h
+// Programation avancée - exercice 2020
+// Intervenant: Axel Viala (darnuria) axel@darnuria.eu
 // Animateur: Axel Viala (darnuria)
 //
 // struct.rs
@@ -65,12 +65,11 @@ impl Point2D { // Le type Self vaut le type après `impl`
         Point2D { x, y }
     }
 
-    fn x(self) -> i32 {
-        self.x
-    }
-
-    fn y(self) -> i32 {
-        self.y
+    /// Offre une representation textuelle pour un humain d'un point
+    /// `Point2D { x: 3, y: 5 }
+    fn show(self) -> String {
+        unimplemented!("Whops pas encore implementé!")
+        format!(???)
     }
 }
 
@@ -82,7 +81,8 @@ impl Add for Point2D {
 
     // Self is Add here.
     fn add(self, other: Self) -> Self {
-        Self::new(???, ???))
+        unimplemented!("Whops pas encore implementé!")
+        //Self::new(???, ???))
     }
 }
 

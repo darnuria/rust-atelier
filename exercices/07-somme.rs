@@ -1,6 +1,6 @@
 // -----------------------------------------------------------------------------
-// Atelier Rust
-// 2019-05-23 - 13h -> 13h45
+// Programation avancée - exercice 2020
+// Intervenant: Axel Viala (darnuria) axel@darnuria.eu
 // Animateur: Axel Viala (darnuria)
 //
 // Somme.rs

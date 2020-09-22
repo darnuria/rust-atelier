@@ -1,7 +1,6 @@
 // -----------------------------------------------------------------------------
-// Atelier Rust
-// 2019-11-17 - 14h -> 16h
-// Animateur: Axel Viala (darnuria)
+// Programation avancée - exercice 2020
+// Intervenant: Axel Viala (darnuria) axel@darnuria.eu
 //
 // struct.rs
 //
