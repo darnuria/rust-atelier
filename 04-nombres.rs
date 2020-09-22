@@ -1,7 +1,6 @@
 // -----------------------------------------------------------------------------
-// Atelier Rust Journée du Logiciel Libre
-// 2019-04-06 - 13h -> 13h45
-// Animateur: Axel Viala (darnuria)
+// Programation avancée - exercice 2020
+// Intervenant: Axel Viala (darnuria) axel@darnuria.eu
 //
 // nombres.rs
 //

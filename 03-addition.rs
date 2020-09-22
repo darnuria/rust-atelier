@@ -1,12 +1,12 @@
 // -----------------------------------------------------------------------------
-// Atelier Rust Journée du Logiciel Libre
-// 2019-04-06 - 13h -> 13h45
-// Animateur: Axel Viala (darnuria)
+// Programation avancée - exercice 2020
+// Intervenant: Axel Viala (darnuria) axel@darnuria.eu
 //
-// addition.rs
+// 03-addition.rs
 //
 // Dans ce programme on va découvrir comment résoudre une erreur de typage,
 // c'est une erreur classique qui vous arrivera souvent! Donc on va le découvrir ensemble.
+//
 // Objectifs pédagogiques:
 //
 // - Découvrir le garde-fou qu'apporte le typage
@@ -15,14 +15,16 @@
 // -----------------------------------------------------------------------------
 
 
-// Typage 101:
+// Typage ça se mange?:
+
 // En Rust les expressions portent un type et comme l'expression populaire suivante
 // le dit: On ne peux pas additionner les choux et les carottes.
 //
 // Jusqu'ici nous avons manipulé les types:
-// - `&str` (les chaînes de caractères),
-// - `i32` (nombre entiers),
-// - les fonctions qui sont un type un peu avancé ;)
+//
+// - "Toto": `&str` (les chaînes de caractères)
+// - 3: `i32` (nombre entiers) par exemple
+// - main: les fonctions qui sont un type un peu avancé ;)
 
 
 fn main() {

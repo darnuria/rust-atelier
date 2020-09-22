@@ -1,9 +1,8 @@
 // -----------------------------------------------------------------------------
-// Atelier Rust Journée du Logiciel Libre
-// 2019-04-06 - 13h -> 13h45
-// Animateur: Axel Viala (darnuria)
+// Programation avancée - exercice 2020
+// Intervenant: Axel Viala (darnuria) axel@darnuria.eu
 //
-// bonjour-rust.rs
+// 02-bonjour-rust.rs
 //
 // Dans cet exercice vous allez découvrir les chaines de caractères un *type*
 // très utile, comment en afficher et comment les formater, aussi vous découvrirez

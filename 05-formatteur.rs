@@ -1,14 +1,14 @@
 // -----------------------------------------------------------------------------
-// Atelier Rust Journée du Logiciel Libre
-// 2019-04-06 - 13h -> 13h45
-// Participant: Charles Gueunet
+// Programation avancée - exercice 2020
+// Intervenant: Axel Viala (darnuria) axel@darnuria.eu
+// Co-auteur de l'exercice: Charles Gueunet
 //
-// formatteur.rs
+// 05-formatteur.rs
 //
 // On a vu dans les exercices précédents
 // qu'il est possible d'afficher le contenu
 // d'une variable ou d'une référence grâce à la
-// macro println! et du formatteur {}
+// macro `println!` et du formatteur {}
 // Nous allons ici explorer quelques autres formatteur
 
 fn main() {

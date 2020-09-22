@@ -1,25 +1,26 @@
 // -----------------------------------------------------------------------------
-// Atelier Rust Journée du Logiciel Libre
-// 2019-04-06 - 13h -> 13h45
-// Animateur: Axel Viala (darnuria)
+// Programation avancée - exercice 2020
+// Intervenant: Axel Viala (darnuria) axel@darnuria.eu
 //
-// premiers-pas.rs
+// 01-premiers-pas.rs
 //
 // Dans cet exercice vous allez découvrir les commentaires, faire votre premier
 // programme il sera très simple, il ne fera rien!
+//
 // L'enjeux est de prendre en main votre éditeur de texte, d'apprendre à compiler
 // et de découvrir les erreurs de compilation.
 //
 // Objectifs pédagogiques:
 //
-// - Commentaires mono-ligne et multi-lignes
-// - Point d'entrée: fonction main
-// - Découverte des blocs
-// - Compilation
+// - Commentaires mono-ligne et multi-lignes `\\` et `\* *\`
+// - Point d'entrée du programme la fonction `main`
+// - Découverte des blocs `{}`
+// - Compilation de notre programme!
+// - Execution
 //
 // -----------------------------------------------------------------------------
 
-// Bienvenu à cet atelier! L'objectif est de découvrir ensemble la programmation
+// Bienvenu dans ce cours de programmation avancée! L'objectif est de découvrir ensemble la programmation
 // à l'aide du langage Rust. L'atelier sera centré sur la pratique donc trève de
 // discussions! Le format principal sera le fichier source hautement documenté.
 
@@ -52,6 +53,7 @@ fn main() {
 
 // Félicitation! Voici notre premier programme Rust. Il ne fait rien! :)
 // Vous pouvez le compiler avec la commande : `rustc premiers-pas.rs`
+//
 // Et l'executer avec la commande `./premiers-pas` ou le tester dans le playground rust
 // https://play.rust-lang.org
 
@@ -84,3 +86,4 @@ fn main() {
 
 
 // Indice: Un commentaire sur plusieurs lignes n'est pas fermé!!!
+// Vous aurrez souvent des indices en pied de fichier
