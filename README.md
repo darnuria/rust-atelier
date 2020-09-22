@@ -5,9 +5,22 @@ Au travers d'exercices simples on va s'approprier la syntaxe du langage [Rust](h
 Retenez ceçi pour la suite: Toute question est bonne, dans le doute demandez moi.
 Rust est un langage complexe donc n'hésitez pas a poser des questions!
 
-## Ressources utiles
+## A faire pour la prochaine fois
+
+Pour le mardi 29 septembre ou vendredi 02 octobre selon votre groupe!
+Avoir avancé dans rustlings jusque a l'exercice `quiz2` au moins.
+laissez vous guider par `rustlings watch`. :)
+
+## Ressources indispensables
 
 - [rustlings](https://github.com/rust-lang/rustlings/) exercices très simples
+  pour maitriser la syntaxe
+
+### Bonus trèèèèèès recommandé
+
+Si vous ne souhaitez pas vous faire un compte sur exercism vous pouvez pratiquer
+en clonant le dépot : <https://github.com/exercism/rust/>
+
 - [Exercism.io](https://exercism.io/tracks/rust) bases d'exercices en licence
 libre
 
