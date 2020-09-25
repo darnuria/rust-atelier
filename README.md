@@ -6,6 +6,12 @@ Au travers d'exercices simples on va s'approprier la syntaxe du langage
 Retenez ceçi pour la suite: Toute question est bonne, dans le doute demandez moi.
 Rust est un langage complexe donc n'hésitez pas a poser des questions!
 
+## Notes de Cours
+
+Vous pourrez trouver des [notes de cours](cours/readme.md) dans le dossier `cours`, vous pouvez
+soumettre les votres par courriel ou directement dans une merge request ou une
+issue sur [framagit](https://framagit.org/darnuria/rust-initiation)
+
 ## A faire pour la prochaine fois
 
 Pour le mardi 29 septembre ou vendredi 02 octobre selon votre groupe!
