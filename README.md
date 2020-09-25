@@ -113,7 +113,7 @@ Pour la praticité je vous reporte la procédure:
 ```bash
 # Si vous voulez installer ailleurs que dans votre $HOME il suffit de changer
 # la ligne après `bash -s`
-curl -L https://git.io/rustlings | bash -s $HOME/
+curl -L https://git.io/rustlings | bash -s $HOME/rustlings
 ```
 
 Ensuite vous pouvez aller dans le répertoire de rustlings: `cd $HOME/rustlings`,
