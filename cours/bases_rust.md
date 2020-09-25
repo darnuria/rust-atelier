@@ -137,7 +137,7 @@ Elles sont utiles pour partager une valeur avec l'ensemble d'un programme.
 Nous y reviendrons plus tard.
 
 ```rust
-const VITESSE_SON u32 = 340;
+const VITESSE_SON: u32 = 340;
 ```
 
 ## Essentiel à retenir sur les variables.
