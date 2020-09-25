@@ -77,7 +77,7 @@ fichier de configuration local de bash disponnible au chemin `~/.bashrc`.
 ### Ajouter au chemin les binaires installé par cargo et rustc
 
 Si vous voulez allez vite vous pouvez faire cela va écrire la chaine entre `"`
-dans votre fichier `.bashrc`: `echo "source $HOME/.cargo/bin" >> ~/.bashrc`
+dans votre fichier `.bashrc`: `echo "source $HOME/.cargo/env" >> ~/.bashrc`
 
 Sinon vous aurez des erreurs du type: `Command 'rustc' not found`
 
