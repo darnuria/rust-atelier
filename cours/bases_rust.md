@@ -140,7 +140,7 @@ Nous y reviendrons plus tard.
 const VITESSE_SON: u32 = 340;
 ```
 
-## Essentiel à retenir sur les variables.
+## Essentiel à retenir sur les variables
 
 Avoir des variables immutables par défaut évite pas mal de bugs courants et
 permet pleins d'optimisations. Et on peut se concentrer lors de la lecture

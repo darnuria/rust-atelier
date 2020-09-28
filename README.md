@@ -116,13 +116,17 @@ Pour la praticité je vous reporte la procédure:
 curl -L https://git.io/rustlings | bash -s $HOME/rustlings
 ```
 
+> ⚠ Erreur possible: Si vous avez l'erreur `linker 'cc' not found` faites
+> `sudo apt install build-essential` il vous manque le minimum pour
+> compiler du C/C++! Certains paquets rust en auront besoin.
+
 Ensuite vous pouvez aller dans le répertoire de rustlings: `cd $HOME/rustlings`,
 lancer `rustlings` en tappant `rustlings watch` dans votre terminal.
 
 Ensuite il suffit de se laisser guider d'editer les exercices disponnibles dans:
 `~/rustlings/exercices`.
 
-vous devriez quelque chose mais en couleur comme:
+Vous devriez quelque chose mais en couleur comme:
 
 ```txt
 ! Compiling of exercises/variables/variables1.rs failed! Please try again. Here's the output:
