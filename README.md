@@ -1,4 +1,4 @@
-# ⚙🦀 Ressources pour le cours de Programmation Avancée en Rust ⚙🦀
+# ⚙🦀 Ressources du cours de Programmation Avancée en Rust ⚙🦀
 
 Au travers d'exercices simples on va s'approprier la syntaxe du langage
 [Rust](https://www.rust-lang.org/).
