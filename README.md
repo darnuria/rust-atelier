@@ -71,7 +71,7 @@ Vous pouvez l'installer avec la commande suivante:
 
 Ensuite choissisez les choix par défauts.
 
-⚠ Attention ⚠ : Il faut bien penser d'ajouter `source $HOME/.cargo/bin` à la fin de
+⚠ Attention ⚠ : Il faut bien penser d'ajouter `source $HOME/.cargo/env` à la fin de
 fichier de configuration local de bash disponnible au chemin `~/.bashrc`.
 
 ### Ajouter au chemin les binaires installé par cargo et rustc
