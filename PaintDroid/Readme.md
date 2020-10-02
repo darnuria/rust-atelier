@@ -70,5 +70,9 @@ reste un element dans lequel les autres robots peuvent entrer en collision.
 
 La collision entre deux robots n'implique pas de mise hors service.
 
+Programmer ce qui est neccessaire pour que a chaque *tick* de façon aléatoire un
+robot avance sa liste d'instruction serait symbolisée par simplement aucune liste
+d'instructions.
+
 Pour vous aider avec les couleurs vous pouvez utiliser la crate [termion](https://lib.rs/crates/termion)
 ou [colored](https://crates.io/crates/colored).
