@@ -52,12 +52,23 @@ Pour representer:
 - un robot une simple structure suffira.
 - La structure pour contenir les robots pourras être un `vec<Robot>`
 
-<!--
+Programmer ce qui est neccessaire pour que a chaque *tick* de façon aléatoire un
+robot avance sa liste d'instruction serait symbolisée par simplement aucune liste
+d'instructions.
 
-# Améliorations :
+## version 0.4.0 : un peu de couleurs
 
+A présent les robots lorsque ils se déplacent laissent une couleur sur les cases
+qu'ils ont traversée, les couleurs sont determinées à partir de l'id d'un robot.
 
-Debug des collisions:
+Les couleurs seront des couleurs affichables en terminal, à vous d'ecrire une
+fonction qui va des id vers les couleurs. indice: fonction de hashage, trait `Hash`.
 
-`[ID du robot] BeBop!? Collision with <Id du robot collisionné>`
--->
+Si un robot traverse la couleur d'un autre robot il est mis hors service, il est
+hors jeu pour le reste de la partie et sera symbolisé par `'🤖'` par exemple il
+reste un element dans lequel les autres robots peuvent entrer en collision.
+
+La collision entre deux robots n'implique pas de mise hors service.
+
+Pour vous aider avec les couleurs vous pouvez utiliser la crate [termion](https://lib.rs/crates/termion)
+ou [colored](https://crates.io/crates/colored).
