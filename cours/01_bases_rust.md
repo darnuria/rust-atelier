@@ -310,8 +310,10 @@ For more information about this error, try `rustc --explain E0308`.
 En Rust les caractères type `char`[📖](https://doc.rust-lang.org/std/primitive.char.html)
  sont encodées sur *32bits* car ils representent des [valeurs scalaires unicode](https://www.unicode.org/glossary/#unicode_scalar_value) valides.
 
-> Note avancée: `👻 U+1F47B: Ghost` est un caractère valide mais `é` non car il s'encode avec plusieurs,
-> elements unicode: `U+0065: 'latin small letter e` et `U+0301: 'combining acute accent`.
+> Note avancée à propos d'utf-8: `👻 U+1F47B: Ghost` est un caractère valide mais `é` peut s'encoder
+> de plusieurs façons! Par exemple `é (U+00E9): Latin Small Letter E with Acute`
+> qui est un `char` valide ou une combinaison elements unicode: `U+0065: 'latin small letter e`
+> et `U+0301: 'combining acute accent`.
 
 Dans la vie de tout les jours vous devriez pas avoir trop de problèmes! Mais
 quand on vera les chaines de caractères vous verrez que c'est compliqué et itérer
