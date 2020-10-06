@@ -616,8 +616,12 @@ que vous le désirez car new n'est pas un concept particulier du langage contrai
 D'autres methodes seront liée a une instance construite par example:
 
 ```rust
+struct Point { x: i32, y: i32 }
 impl Point {
-  add(self, other: Point) -> Point {
+  fn new(x: i32, y: i32) -> Self { Point { x, y } }
+  // self se référe à l'instance sur laquelle on appelle add.
+  // par exemple p.add(Point { x: 5, y: 5}) ici self c'est `p`.
+  fn add(self, other: Self) -> Self { // Self se référe a Point ;)
     Point::new(
       self.x + other.x,
       self.y + other.y
@@ -627,10 +631,16 @@ impl Point {
 
 fn main() {
   let p = Point::new(0, 0);
-  let o = p.add(p, Point::new(1, 1));
-  println("x: {}; y: {}", o.x, o.y)
+  let a = Point::new(1, 1);
+  let o = p.add(a);
+  println("x: {}; y: {}", o.x, o.y);
 }
 ```
+
+En Rust `self` est un sucre syntaxique pour écrire `self: Self` et `Self` se référe au type écrit après le mot
+clef `impl`. `self` sera toujours en lien avec la structure à gauche du `.` dans la syntaxe `p.add(o)`.
+
+On peut aussi écrire en syntaxe préfixée: `Point::add(p, o)` c'est equivalent.
 
 On va voir par la suite qu'il est possible d'implementer et definir des comportements contractualisées via
 les `traits`. Vous en avez peut-être manipulées sans le savoir en utilisant `#[derive(Eq, Debug)]` devant
@@ -647,6 +657,36 @@ struct Point {
 
 fn main() {
   let p = Point { x: 5, y: 5 };
-  assert_eq!(p, Point { x: 5, y: 5 })
+  assert_eq!(p, Point { x: 5, y: 5 });
 }
 ```
+
+Automatiquement avec `#[derive(Eq, Debug)]` le compilateur va implementer (générer le code) pour nous des traits:
+
+* Egalité totale:`std::cmp::Eq`[📖doc](https://doc.rust-lang.org/std/cmp/trait.Eq.html) permet d'utiliser `==`
+* Affichage de Debug `std::fmt::Debug`[📖doc](https://doc.rust-lang.org/std/fmt/trait.Debug.html) formatage dans `println!`: `{:#?}`
+
+On va revenir sur les traits plus tard. ;)
+
+
+### Avancé implementé soit même un trait comme Add
+
+Par exemple on peut définir l'addition entre deux point selon le `trait` `std::ops::Add`[📖doc](https://doc.rust-lang.org/std/ops/trait.Add.html) 
+
+```rust
+// a lire On implemente Add entre Point et Point.
+impl Add for Point {
+      // Le trait Add neccessite d'indiquer un type associée au résultat de l'addition
+    // On vera pourquoi c'est la magie derrière les itérateurs.
+    type Output = Self; 
+
+    fn add(self, other: Self) -> Self {
+        Self {
+            x: self.x + other.x,
+            y: self.y + other.y,
+        }
+    }
+}
+```
+
+Ce qui nous donne maintenant le droit d'additionner des `Point` avec `+`!
