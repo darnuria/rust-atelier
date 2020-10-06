@@ -599,7 +599,7 @@ impl Point {
   /// Construit un `Point` dans un espace en deux dimensions:
   /// `x` represente sa position en abscisse
   /// `y` represente sa position en ordonnées
-  fn new(x: i32, y: i32) { 
+  fn new(x: i32, y: i32) {
     Point { x, y }
   }
 }
@@ -671,14 +671,14 @@ On va revenir sur les traits plus tard. ;)
 
 ### Avancé implementé soit même un trait comme Add
 
-Par exemple on peut définir l'addition entre deux point selon le `trait` `std::ops::Add`[📖doc](https://doc.rust-lang.org/std/ops/trait.Add.html) 
+Par exemple on peut définir l'addition entre deux point selon le `trait` `std::ops::Add`[📖doc](https://doc.rust-lang.org/std/ops/trait.Add.html)
 
 ```rust
 // a lire On implemente Add entre Point et Point.
 impl Add for Point {
       // Le trait Add neccessite d'indiquer un type associée au résultat de l'addition
     // On vera pourquoi c'est la magie derrière les itérateurs.
-    type Output = Self; 
+    type Output = Self;
 
     fn add(self, other: Self) -> Self {
         Self {
