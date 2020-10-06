@@ -515,8 +515,138 @@ fn addition_en_plus_long(a: i32, b: i32) -> i32 {
 
 ## Contrôle de flux d'execution
 
-À venir:
+En rust pour gérer un flux d'instruction on peut utiliser le mot clef `if` et `else` et les combinner en `else if`,
+la particularité est en Rust est qu'il n'y a pas de ternaires comme en C ou Javascript vous pouvez directement utiliser
+le `if` comme une expression.
 
 ```rust
 let bonnes_conditions_d_etudes = if temperature <= 25 { true } else { false };
+```
+
+Vous pouvez aussi avoir un `if` imperatif comme en C ou JavaScript comme çi dessous sa valeur de retour sera `()`.
+```rust
+if expression {
+  println!("Ceci est un message a caractère imperatif");
+}
+```
+La règle a respecter est que chaque branche dois renvoyer le même type `T` par exemple si le `if` renvoie `i32` alors le `else` dois renvoyer `i32` aussi impossible de renvoyer `i32` ou `()` sans utiliser une `enum`. ;)
+
+## match
+
+(a venir)
+
+## Structures - struct
+
+### Structures avec champs nommées dites classiques
+
+En Rust on peut définir des structures par exemple:
+
+```rust
+struct Point {
+  x: i32,
+  y: i32,
+}
+
+fn main() {
+  // On construit un Point avec x = 0 y = 1
+  let p = Point { x: 0, y: 1 };
+  println!("{}", p.x);
+}
+```
+
+Par défaut les champs seront immutables pour les avoir mutables il faudra les annoter `mut` comme
+avec le mot-clé `let`. Vous remarquerez qu'on dois indiquer les types sur les champs.
+
+### Structures avec champs non nommées - tuple struct / opaque struct
+
+On peut aussi representer des structures sans nommer les champs par exemple:
+
+```rust
+struct Point(i32, i32);
+fn main() {
+  let p = Point(0, 5);
+  println!("{}". p.0);
+}
+```
+
+L'usage entre une structure classique ou tuple struct dépendra du besoin,
+en général on utilisera des structures à champs nommées.
+
+### Structures sans champs nommées - unit struct
+
+Il existe des structures sans champs cela s'appelle des unit-struct. Ça sert à avoir un type pour quelque chose, mais
+qui n'a pas besoin de valeur. C'est utilisé par exemple dans le framework de jeu vidéo [amethyst.rs](https://book.amethyst.rs/stable/pong-tutorial/pong-tutorial-04.html) les systèmes comme le gestionnaire de mouvement des balles jeu pong proposé en tutoriel sont representé par une unit struct.
+
+```rust
+struct UnitStruct;
+fn main() {
+  let u = UnitStruct; // On peut construire une instance de cette unit struct.
+}
+```
+
+### Associer des fonctions aux structures - impl
+
+En rust on peut associer des fonctions aux types comme les structures par exemple pour
+créer une fonction `new` on appellera ces fonctions des méthodes.
+
+> Note: Pas vraiment de classes en Rust comme vu dans les langages Objets.
+
+```rust
+/// Un point en deux dimensions.
+struct Point { x: i32, y: i32 }
+
+impl Point {
+  /// Construit un `Point` dans un espace en deux dimensions:
+  /// `x` represente sa position en abscisse
+  /// `y` represente sa position en ordonnées
+  fn new(x: i32, y: i32) { 
+    Point { x, y }
+  }
+}
+
+fn main() {
+  let p = Point::new(0, 5);
+}
+```
+
+Ici `new` sera une méthode dite statique car accessible sans avoir un `Point`
+construit avec la syntaxe `Point::new(0, 5)`, il peut y avoir autant de variantes de «constructeur»
+que vous le désirez car new n'est pas un concept particulier du langage contrairement à d'autres langages.
+
+D'autres methodes seront liée a une instance construite par example:
+
+```rust
+impl Point {
+  add(self, other: Point) -> Point {
+    Point::new(
+      self.x + other.x,
+      self.y + other.y
+    )
+  }
+}
+
+fn main() {
+  let p = Point::new(0, 0);
+  let o = p.add(p, Point::new(1, 1));
+  println("x: {}; y: {}", o.x, o.y)
+}
+```
+
+On va voir par la suite qu'il est possible d'implementer et definir des comportements contractualisées via
+les `traits`. Vous en avez peut-être manipulées sans le savoir en utilisant `#[derive(Eq, Debug)]` devant
+un type. Qui demande au compilateur de générer pour nous par exemple l'égalité avec `==`.
+
+Par exemple je peux avoir l'égalité facilement et l'affichage de débug en ajoutant juste:
+
+```rust
+#[derive(Eq, Debug)]
+struct Point {
+  x: i32,
+  y: i32,
+}
+
+fn main() {
+  let p = Point { x: 5, y: 5 };
+  assert_eq!(p, Point { x: 5, y: 5 })
+}
 ```
