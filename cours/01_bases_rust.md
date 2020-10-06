@@ -690,3 +690,29 @@ impl Add for Point {
 ```
 
 Ce qui nous donne maintenant le droit d'additionner des `Point` avec `+`!
+
+## Types options - enum
+
+En Rust on peut definir des `enum`erations dit types sommes ou Algebraic Data Types.
+
+```rust
+enum Colors {
+  Purple,
+  Red,
+  Black,
+}
+```
+
+Et souhaite l'utiliser!
+
+```rust
+impl Colors {
+  fn to_hex(&self) -> &str {
+    match self {
+      Colors::Purple => "#EE82EE",
+      Colors::Red => "#D90416",
+      Colors::Black => "#000000",
+    }
+  }
+}
+```
