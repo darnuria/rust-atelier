@@ -8,9 +8,12 @@ Rust est un langage complexe donc n'hésitez pas a poser des questions!
 
 ## Notes de Cours
 
-Vous pourrez trouver des [notes de cours](cours/readme.md) dans le dossier `cours`, vous pouvez
-soumettre les votres par courriel ou directement dans une merge request ou une
-issue sur [framagit](https://framagit.org/darnuria/rust-initiation)
+Vous pourrez trouver des [notes de cours](cours/readme.md) dans le dossier `cours`,
+et une [bibliographie](cours/bibliographie.md) avec des liens utiles.
+
+> Vos contributions au cours: vous pouvez soumettre des contributions au cours par courriel ou 
+> directement dans une merge request ou une issue sur 
+> [framagit](https://framagit.org/darnuria/rust-initiation).
 
 ## A faire pour la prochaine fois
 
