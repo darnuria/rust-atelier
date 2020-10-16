@@ -423,6 +423,26 @@ fn reference_infondee() -> &i32 {
 Ce genre d'erreur en C/C++ s'appelle un *dangling pointer/reference* c'est un
 comportement indéfini du standard C/C++ 👻.
 
+Rust va dire:
+
+```rust
+error[E0106]: missing lifetime specifier
+ --> src/main.rs:1:28
+  |
+1 | fn reference_infondee() -> &i32 {
+  |                            ^ expected named lifetime parameter
+  |
+  = help: this function's return type contains a borrowed value, but there is no value for it to be borrowed from
+help: consider using the `'static` lifetime
+  |
+1 | fn reference_infondee() -> &'static i32 {
+  |
+```
+
+Ce qui signifie en langage humain: Tu essaie de «prêter ce que tu ne possède pas».
+On ne peux pas renvoyer une référence sur une variable locale d'une fonction.
+En C le compilateur le laisse faire mais c'est bug notoire!
+
 #### Lifetimes - Cannot infers lifetime
 
 Parfois il faudra ajouter des annotations de durées de vie d'une référence
