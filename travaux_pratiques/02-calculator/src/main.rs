@@ -40,6 +40,10 @@ enum Expression {
 // Tuples: Ocaml, Python, Swift, Kotlin?, Haskell, Scala, Typescript
 // (&str, i32, i32) ~= (i32, i32, &str) ~- struct sans nom
 impl Expression {
+    /// Represente des expressions en notation infixe.
+    /// ```rust
+    /// assert_eq!(Expression::Add(1, 1), "1 + 1")
+    /// ```
     fn display(&self) -> String {
         use Expression as E;
         let (op, x, y) = match self {
