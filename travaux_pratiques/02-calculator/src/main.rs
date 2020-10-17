@@ -71,9 +71,10 @@ impl Expression {
     fn parse(input: &str) -> Result<Expression,  std::num::ParseIntError> {
         let expr : Vec<&str> = input.split_whitespace().collect();
         if expr.len() == 3 {
+            let op = expr[0];
             let x = expr[1].parse()?;
             let y = expr[2].parse()?;
-            let expr = match (expr[0], x, y) {
+            let expr = match (op, x, y) {
                 ("+", x, y) => Expression::Add(x, y),
                 ("*", x, y) => Expression::Mul(x, y),
                 ("-", x, y) => Expression::Sub(x, y),
