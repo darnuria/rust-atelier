@@ -30,9 +30,6 @@
 // - Implementer les expressions comme un vrai arbre de syntaxe abstrait
 // - Gérer les expressions infixes et les parentheses!
 
-use std::io;
-use std::num::ParseIntError;
-
 #[derive(Debug, PartialEq)]
 enum Expression {
     Mul(i32, i32),
@@ -67,7 +64,7 @@ impl Expression {
     /// ```rust
     /// assert_eq!(parse("+ 3 3"), Instruction::Add(3, 3));
     /// ```
-    fn parse(input: &str) -> Result<Expression,  ParseIntError> {
+    fn parse(input: &str) -> Result<Expression,  std::num::ParseIntError> {
         let expr : Vec<&str> = input.split_whitespace().collect();
         if expr.len() == 3 {
             let x = expr[1].parse()?;
