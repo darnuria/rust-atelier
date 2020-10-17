@@ -89,12 +89,23 @@ impl Expression {
     }
 }
 
-fn main() {
+// Main aussi peut renvoyer un Result! :)
+fn main() -> std::io::Result<()> {
     let mut expr = String::new();
-    let stdio = io::stdin();
-    stdio.read_line(&mut expr).expect("Failed to read!");
-    let expr = Expression::parse(expr.trim()).expect("Something wrong happened!");
-    println!("{}", expr.execute());
+    let stdin = std::io::stdin();
+    stdin.read_line(&mut expr)?;
+
+    // On retire les espaces au debut et a la fin + retour a la ligne.
+    let expr = expr.trim();
+    // TODO: pour gérer les erreurs proprement ici il faut
+    // Trouver un moyen de faire une erreur generic c'est assez dur
+    // pour l'instant donc: Result::expect c'est OK! :)
+
+    let expr = Expression::parse(expr.trim()).expect("Parsing failed!");
+
+    let result = expr.execute();
+    println!("{}", result);
+    Ok(())
 }
 
 #[cfg(test)]
