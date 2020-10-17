@@ -37,7 +37,7 @@
 use std::io;
 
 fn main() {
-    // On poeux utiliser un générateur de nombre aleatoire ici plutot que 42.
+    // On peux utiliser un générateur de nombre aleatoire ici plutot que 42.
     let mystere = 42;
     let guess = String::new();
     
