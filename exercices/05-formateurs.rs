@@ -3,13 +3,13 @@
 // Intervenant: Axel Viala (darnuria) axel@darnuria.eu
 // Co-auteur de l'exercice: Charles Gueunet
 //
-// 05-formatteur.rs
+// 05-formateur.rs
 //
 // On a vu dans les exercices précédents qu'il est possible d'afficher dans
 // le terminal la valeur d'une variable ou la valeur pointée par une
 // référence grâce à la macro `println!` et du formateur par defaut `{}`.
 //
-// Nous allons ici explorer quelques autres formatteurs
+// Nous allons ici explorer quelques autres formateurs
 
 fn main() {
 
@@ -19,14 +19,14 @@ fn main() {
 
     //                      Ici `{}` insère directement `entier`
     //                      ↓↓
-    println!("Voici entier: {} et une reference vers celui-çi: {}.",
+    println!("Voici entier: {} et une reference vers celui-ci: {}.",
              entier, reference); //                            ↑↑
                                  // Ici le formateur auto-déréférence
                                  // `reference` vers `entier`
 
 
     // Pour ne pas déréférencer la variable mais afficher l'adresse
-    // vers laquelle elle point on peut utiliser le formatteur {:p}
+    // vers laquelle elle point on peut utiliser le formateur {:p}
     //                                        ↓↓
     println!("Notre entier est à l'adresse:  {}", reference);
 
