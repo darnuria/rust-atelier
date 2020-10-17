@@ -68,22 +68,24 @@ impl Expression {
     /// ```rust
     /// assert_eq!(parse("+ 3 3"), Instruction::Add(3, 3));
     /// ```
-    fn parse(input: &str) -> Result<Expression,  std::num::ParseIntError> {
-        let expr : Vec<&str> = input.split_whitespace().collect();
-        if expr.len() == 3 {
-            let op = expr[0];
-            let x = expr[1].parse()?;
-            let y = expr[2].parse()?;
-            let expr = match (op, x, y) {
-                ("+", x, y) => Expression::Add(x, y),
-                ("*", x, y) => Expression::Mul(x, y),
-                ("-", x, y) => Expression::Sub(x, y),
-                (_, _, _) => panic!("Unexpected operator >_<"),
-            };
-            Ok(expr)
-        } else {
-            panic!("UNable to handle expression not enougth parameter");
+    fn parse(input: &str) -> Result<Expression, std::num::ParseIntError> {
+        let expr: Vec<&str> = input.split_whitespace().collect();
+        if expr.len() != 3 {
+            // Peut-être il faut faire un erreur plus generique
+            // plutôt que de crasher! :) indice: std::Error
+            panic!("Unable to handle expression not enougth parameter");
         }
+        let op = expr[0];
+        let x = expr[1].parse()?;
+        let y = expr[2].parse()?;
+        let expr = match (op, x, y) {
+            ("+", x, y) => Expression::Add(x, y),
+            ("*", x, y) => Expression::Mul(x, y),
+            ("-", x, y) => Expression::Sub(x, y),
+            // TODO: trouver une solution pour faire une erreur generique :)
+            (_, _, _) => panic!("Unexpected operator >_<"),
+        };
+        Ok(expr)
     }
 }
 
