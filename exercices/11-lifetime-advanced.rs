@@ -1,6 +1,12 @@
 // -----------------------------------------------------------------------------
+<<<<<<< HEAD:exercices/11-lifetime-advanced.rs
 // Programation avancée - exercice 2020
 // Intervenant: Axel Viala (darnuria) axel@darnuria.eu
+=======
+// Atelier Rust
+// 2019-11-17 - 14h -> 16h
+// Animateur: Axel (darnuria) && Aurelia
+>>>>>>> 806f69d (mise a jour JDLL 2022 authors):11-lifetime-advanced.rs
 //
 // 10-lifetimes-basic.rs
 //
@@ -43,7 +49,7 @@ fn smallest(w: &[i32]) -> &i32 {
 /// Comme `smallest_lifetime` mais avec des lifetime explicites
 /// Utilisez les erreurs de compilation pour corriger la signature
 /// de type.
-fn smallest_lifetime<'a>(w: &[i32]) -> &'a i32 {
+fn smallest_lifetime<'a>(w: &'a[i32], v: &'a[i32]) -> &'a i32 {
     // Mais souvent on dois les écrires soit même,
     // Ici ce n'était aps obligé mais pour s'habituer
     // nous allons le faire.
@@ -53,12 +59,24 @@ fn smallest_lifetime<'a>(w: &[i32]) -> &'a i32 {
             s = r;
         }
     }
-    s
+
+    let mut e = &v[0];
+    for r in &v[1..] {
+        if *r < *e {
+            e = r;
+        }
+    }
+    if e < s {
+        e
+    } else { 
+        s
+    }
 }
 
 fn main() {
     let a = [5, 2, 1, 6, 7, 3, 1, 3, 0, 1];
+    let b = [5, 4, 1, -1, 2 , 1, 3, 0, 1];
     let s_ellided = smallest(&a);
-    let s_lifetime = smallest_lifetime(&a);
-    assert_eq!(*s_ellided, *s_lifetime);
+    let s_lifetime = smallest_lifetime(&a, &b);
+    assert_eq!(*s_lifetime, -1);
 }

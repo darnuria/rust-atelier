@@ -1,6 +1,12 @@
 // -----------------------------------------------------------------------------
+<<<<<<< HEAD:exercices/13-borrow-me-if-you-can.rs
 // Programation avancée - exercice 2020
 // Intervenant: Axel Viala (darnuria) axel@darnuria.eu
+=======
+// Atelier Rust
+// 2019-12-17 - 9h45 -> 13h
+// Animateur: Axel (darnuria) && Aurelia
+>>>>>>> 806f69d (mise a jour JDLL 2022 authors):13-borrow-me-if-you-can.rs
 //
 // 13-borrow-me-if-you-can.rs
 //

@@ -1,7 +1,7 @@
 // -----------------------------------------------------------------------------
 // Atelier Rust
 // 2019-11-27 - 14h -> 16h
-// Animateur: Axel Viala (darnuria)
+// Animateur: Axel (darnuria) && Aurelia
 //
 // 08-plusmoins.rs
 //

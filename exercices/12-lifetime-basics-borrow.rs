@@ -1,6 +1,12 @@
 // -----------------------------------------------------------------------------
+<<<<<<< HEAD:exercices/12-lifetime-basics-borrow.rs
 // Programation avancée - exercice 2020
 // Intervenant: Axel Viala (darnuria) axel@darnuria.eu
+=======
+// Atelier Rust
+// 2019-11-17 - 14h -> 16h
+// Animateur: Axel (darnuria) && Aurelia
+>>>>>>> 806f69d (mise a jour JDLL 2022 authors):10-lifetime-basics.rs
 //
 // 10-lifetimes-basic.rs
 //
@@ -23,13 +29,12 @@
 
 fn main() {
     // `r` ici sera une référence sur x.
-    let r;
-    {
+    let r = {
         // `x` est une valeur dans la pile
         let x = 1;
-        r = &x;
-    } // <- fin de vie de `x`; après x est `dropped`
-    let _is_equal = *r == 1;
+        x
+    }; // <- fin de vie de `x`; après x est `dropped`
+    let _is_equal = r == 1;
     // Rust vérifie à la compilation la validité
     // de la référence `r`.
 }

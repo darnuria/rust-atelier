@@ -1,6 +1,7 @@
 // -----------------------------------------------------------------------------
-// Programation avancée - exercice 2020
-// Intervenant: Axel Viala (darnuria) axel@darnuria.eu
+// Atelier Rust Journée du Logiciel Libre
+// 2022-04-03 11h - 13h -> 13h45
+// Animateur: Axel (darnuria) && Aurelia
 //
 // 06-if_expressions.rs
 //

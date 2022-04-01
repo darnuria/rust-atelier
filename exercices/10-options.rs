@@ -1,6 +1,12 @@
 // -----------------------------------------------------------------------------
+<<<<<<< HEAD:exercices/10-options.rs
 // Programation avancée - exercice 2020
 // Intervenant: Axel Viala (darnuria) axel@darnuria.eu
+=======
+// Atelier Rust
+// 2019-11-17 - 14h -> 16h
+// Animateur: Axel (darnuria) && Aurelia
+>>>>>>> 806f69d (mise a jour JDLL 2022 authors):09-options.rs
 //
 // 09-options.rs
 //

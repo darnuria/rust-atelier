@@ -1,6 +1,12 @@
 // -----------------------------------------------------------------------------
+<<<<<<< HEAD:exercices/03-addition.rs
 // Programation avancée - exercice 2020
 // Intervenant: Axel Viala (darnuria) axel@darnuria.eu
+=======
+// Atelier Rust Journée du Logiciel Libre
+// 2022-04-03 11h - 13h -> 13h45
+// Animateur: Axel (darnuria) && Aurelia
+>>>>>>> 806f69d (mise a jour JDLL 2022 authors):03-addition.rs
 //
 // 03-addition.rs
 //

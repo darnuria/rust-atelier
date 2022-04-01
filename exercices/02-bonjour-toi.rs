@@ -1,6 +1,7 @@
 // -----------------------------------------------------------------------------
-// Programation avancée - exercice 2020
-// Intervenant: Axel Viala (darnuria) axel@darnuria.eu
+// Atelier Rust Journée du Logiciel Libre
+// 2022-04-03 11h - 13h -> 13h45
+// Animateur: Axel (darnuria) && Aurelia
 //
 // 02-bonjour-rust.rs
 //
@@ -27,7 +28,6 @@
 
 fn main() {
     println!("Bienvenu dans l'atelier d'initiation à Rust!");
-
 
     // Ci-dessous je vous invite à faire «dire» à votre programme,
     // «Bonjour» suivit de votre prenom! Par defaut il affichera mon prénom

@@ -1,6 +1,12 @@
 // -----------------------------------------------------------------------------
+<<<<<<< HEAD:exercices/08-struct-point-move.rs
 // Programation avancée - exercice 2020
 // Intervenant: Axel Viala (darnuria) axel@darnuria.eu
+=======
+// Atelier Rust
+// 2019-11-17 - 14h -> 16h
+// Animateur: Axel (darnuria) && Aurelia
+>>>>>>> 806f69d (mise a jour JDLL 2022 authors):07-struct-point.rs
 //
 // struct.rs
 //
@@ -34,33 +40,56 @@ struct Point2D {
     x: i32,
     y: i32,
 }
+// ⬆
+// struct defini un reccord/enregistrement un pack de types
 
-// impl {
-fn new(x: i32, y: i32) -> Point2D {
-    Point2D { x, y }
-}
-
-// Il faudra modifier la signature pour utiliser self
-// et passer par référence! ;)
-fn add(a: Point2D, p: Point2D) -> Point2D {
-    new(???, ???)
-}
-// }
-
-fn main() {
+impl Point2D { // Le type Self vaut le type après `impl`
     
+    /// Construct a point from 2 `i32`.
+    /// ```
+    ///     let a = Point2D::new(1, 2);
+    /// ```
+    fn new(x: i32, y: i32) -> Point2D {
+        Point2D { x, y }
+    }
+    /// Add two Point2D together returns a new one.
+    /// ```
+    ///     let a = Point2D::new(0, 0);
+    ///     let b = Point2D::new(0, 0);
+    ///     let c = a.add(&b);
+    /// ```
+    fn add(&self, p: &Point2D) -> Point2D {
+        Self::new(self.x + p.x, self.y + p.y)
+    }
+
+    fn x(&self) -> i32 {
+        self.x
+    }
+
+    fn y(&self) -> i32 {
+        self.y
+    }
 }
 
+fn main() {}
 // Pour commencer à écrire les tests il faudra décomenter le bloc ci-dessous:
-/*
 #[cfg(test)]
 mod tests {
     use super::*;
 
     #[test]
     fn test_new() {
-        let a = Point::new(1, 2);
-        let b = Point::new(3, 4);
+        let a = Point2D::new(1, 2);
+        assert_eq!(a.x(), 1, "x n'a pas la bonne valeur");
+        assert_eq!(a.y(), 2, "y n'a pas la bonne valeur");
+    }
+
+    #[test]
+    fn test_add() {
+        let a = Point2D::new(1, 2);
+        let b = Point2D::new(1, 2);
+        let c = a.add(&b);
+        assert_eq!(c.x(), 2);
+        assert_eq!(c.y(), 4);
     }
 }
-*/
