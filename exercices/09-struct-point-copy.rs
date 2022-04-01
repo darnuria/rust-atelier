@@ -71,11 +71,21 @@ impl Point2D { // Le type Self vaut le type après `impl`
         Point2D { x, y }
     }
 
+<<<<<<< HEAD:exercices/09-struct-point-copy.rs
     /// Offre une representation textuelle pour un humain d'un point
     /// `Point2D { x: 3, y: 5 }
     fn show(self) -> String {
         unimplemented!("Whops pas encore implementé!")
         format!(???)
+=======
+    /// Renvoie la valeur pour `x` de la struct point courante
+    fn x(self) -> i32 {
+        self.x
+    }
+
+    fn y(self) -> i32 {
+        unimplemented!("A vous de jouer!")
+>>>>>>> 3466d58 (Petits changements sur points):07-struct-point-copy.rs
     }
 }
 
@@ -87,8 +97,8 @@ impl Add for Point2D {
 
     // Self is Add here.
     fn add(self, other: Self) -> Self {
-        unimplemented!("Whops pas encore implementé!")
-        //Self::new(???, ???))
+        //Self::new(???, ???)) // <- a corriger
+        unimplemented!("A vous de jouer!")
     }
 }
 
@@ -103,8 +113,7 @@ mod tests {
     #[test]
     fn test_new() {
         let a = Point2D::new(1, 2);
-        assert_eq!(a.x(), 1, "x n'a pas la bonne valeur");
-        assert_eq!(a.y(), 2, "y n'a pas la bonne valeur");
+        unimplemented!("A vous de jouer!");
     }
 
     #[test]
@@ -112,7 +121,7 @@ mod tests {
         let a = Point2D::new(1, 2);
         let b = Point2D::new(1, 2);
         let c = a.add(b);
-        assert_eq!(c.x(), 2);
+        assert_eq!(c.x(), 2, "whoups l'addition ne corresponds pas!");
         assert_eq!(c.y(), 4);
 
         let e = Point2D::new(2, 4);
