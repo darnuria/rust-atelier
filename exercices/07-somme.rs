@@ -23,10 +23,18 @@
 // Étapes:
 //
 // 0. On fait la somme avec une boucle
-// 1. on fait la somme sur un vector!
-// 2. On extrait dans une fonction
+// 1. On extrait dans une fonction
+// 2. On fait la somme sur un vec!
 // 2.1 On utilise une slice plutôt qu'une reférence sur un vecteur
 // 3. On refait avec une closure et une fonction d'ordre supérieur (fold)
+
+fn sum(start: u32, u32) -> i32 {
+    unimplemented!("Etape 1. A faire!");
+}
+
+fn sum_vec(vec: Vec<u32>) -> u32 {
+    unimplemented!("Etape 2. A faire!");
+}
 
 fn main() {
     let sum;
