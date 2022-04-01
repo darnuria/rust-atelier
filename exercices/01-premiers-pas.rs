@@ -20,13 +20,14 @@
 //
 // -----------------------------------------------------------------------------
 
-// Bienvenu dans ce cours de programmation avancée! L'objectif est de découvrir ensemble la programmation
+
+// Bienvenu à cet atelier! L'objectif est de découvrir ensemble la programmation
 // à l'aide du langage Rust. L'atelier sera centré sur la pratique donc trève de
 // discussions! Le format principal sera le fichier source hautement documenté.
 
 // En Rust pour écrire des choses ignorées par le «compilateur» qui transforme
 // ce fichier en code machine on peut écrire des commentaires (comme toutes les lignes
-// ci-dessus) elles doivent commencer par // ou être englobées entre /* et */.
+// çi-dessus) elles doivent commencer par // ou être englobée entre /* et */.
 
 /* <- Ceci est aussi un commentaire.
    mais sur plusieurs lignes */
