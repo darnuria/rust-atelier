@@ -1,12 +1,7 @@
 // -----------------------------------------------------------------------------
-<<<<<<< HEAD:exercices/08-struct-point-move.rs
-// Programation avancée - exercice 2020
-// Intervenant: Axel Viala (darnuria) axel@darnuria.eu
-=======
 // Atelier Rust
-// 2019-11-17 - 14h -> 16h
+// 2022-04-03 - 11h
 // Animateur: Axel (darnuria) && Aurelia
->>>>>>> 806f69d (mise a jour JDLL 2022 authors):07-struct-point.rs
 //
 // struct.rs
 //

@@ -1,13 +1,7 @@
 // -----------------------------------------------------------------------------
-<<<<<<< HEAD:exercices/07-somme.rs
-// Programation avancée - exercice 2020
-// Intervenant: Axel Viala (darnuria) axel@darnuria.eu
-// Animateur: Axel Viala (darnuria)
-=======
 // Atelier Rust
-// 2019-05-23 - 13h -> 13h45
+// 2022-04-03 - 11h
 // Animateur: Axel (darnuria) && Aurelia
->>>>>>> 806f69d (mise a jour JDLL 2022 authors):06-somme.rs
 //
 // Somme.rs
 //

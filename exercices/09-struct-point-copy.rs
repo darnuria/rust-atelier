@@ -1,13 +1,7 @@
 // -----------------------------------------------------------------------------
-<<<<<<< HEAD:exercices/09-struct-point-copy.rs
-// Programation avancée - exercice 2020
-// Intervenant: Axel Viala (darnuria) axel@darnuria.eu
-// Animateur: Axel Viala (darnuria)
-=======
 // Atelier Rust
-// 2019-11-17 - 14h -> 16h
+// 2022-04-03 - 11h
 // Animateur: Axel (darnuria) && Aurelia
->>>>>>> 806f69d (mise a jour JDLL 2022 authors):07-struct-point-copy.rs
 //
 // struct.rs
 //
@@ -71,13 +65,13 @@ impl Point2D { // Le type Self vaut le type après `impl`
         Point2D { x, y }
     }
 
-<<<<<<< HEAD:exercices/09-struct-point-copy.rs
     /// Offre une representation textuelle pour un humain d'un point
     /// `Point2D { x: 3, y: 5 }
     fn show(self) -> String {
         unimplemented!("Whops pas encore implementé!")
         format!(???)
-=======
+    }
+
     /// Renvoie la valeur pour `x` de la struct point courante
     fn x(self) -> i32 {
         self.x
@@ -85,7 +79,6 @@ impl Point2D { // Le type Self vaut le type après `impl`
 
     fn y(self) -> i32 {
         unimplemented!("A vous de jouer!")
->>>>>>> 3466d58 (Petits changements sur points):07-struct-point-copy.rs
     }
 }
 
