@@ -1,4 +1,4 @@
-# ⚙🦀 Ressources du cours de Programmation Avancée en Rust ⚙🦀
+# ⚙🦀 Atelier de Programmation en Rust ⚙🦀
 
 Au travers d'exercices simples on va s'approprier la syntaxe du langage
 [Rust](https://www.rust-lang.org/).
@@ -6,16 +6,24 @@ Au travers d'exercices simples on va s'approprier la syntaxe du langage
 Retenez ceçi pour la suite: Toute question est bonne, dans le doute demandez moi.
 Rust est un langage complexe donc n'hésitez pas a poser des questions!
 
-## Notes de Cours
+Vous preferez être très autonomes? Lancez vous directement dans [rustlings](https://github.com/rust-lang/rustlings/) après
+une installation de Rust et Cargo!
 
-Vous pourrez trouver des [notes de cours](cours/readme.md) dans le dossier `cours`,
+## Les exercices d'atelier!
+
+Les exercices d'ateliers sont dans le dossier [exercices](exercices),
+il est recommander de commencer par `01-premiers-pas.rs` puis `02-bonjour-toi.rs`.
+
+## Notes
+
+Vous pourrez trouver des [notes](cours/readme.md) dans le dossier `cours`,
 et une [bibliographie](cours/bibliographie.md) avec des liens utiles.
 
-> Vos contributions au cours: vous pouvez soumettre des contributions au cours par courriel ou 
-> directement dans une merge request ou une issue sur 
+> Vos contributions au cours: vous pouvez soumettre des contributions au cours par courriel ou
+> directement dans une merge request ou une issue sur
 > [framagit](https://framagit.org/darnuria/rust-initiation).
 
-## A faire pour la prochaine fois
+## A faire pour continuer chez vous
 
 Pour le mardi 29 septembre ou vendredi 02 octobre selon votre groupe!
 Avoir avancé dans rustlings jusque a l'exercice `quiz2` au moins.
@@ -31,6 +39,8 @@ Pour juste tester vous pouvez utiliser [l'environnement de brouillon de Rust en 
 
 ## Installer son environnement de travail
 
+Le plus important installer `rust-analyzer`, ça vous sera utile pour la maison avec vos premiers projets avec `cargo`. :)
+
 ### Vscodium
 
 Visual studio mais sans le support de microsoft ni la télémetrie:
@@ -44,10 +54,10 @@ ou le `.deb` à installer avec `sudo dpkg -i mon_packet`
 
 Pensez à installer l'addon Rust!
 
-### Vim / Emacs / Spacemacs
+### Vim / Neovim / Emacs / Spacemacs
 
 Quelques liens pour les personnes qui désireraient utiliser [emacs](https://www.gnu.org/software/emacs/)
-avec [spacemacs](https://www.spacemacs.org/) ou [vim](https://www.vim.org/) pour Rust:
+avec [spacemacs](https://www.spacemacs.org/) ou [vim](https://www.vim.org/) ou [neovim](https://neovim.io/) pour Rust:
 
 * Vim: <https://opensource.com/article/20/7/vim-rust-ide>
 * Emacs avec Spacemacs: <https://github.com/rust-lang/rust-mode>
@@ -92,14 +102,14 @@ Vous devriez obtenir quelque chose comme :
 
 ```bash
 $ rustc --version
-rustc 1.46.0 (04488afe3 2020-08-24)
+rustc 1.59.0 (9d1b2106e 2022-02-23)
 ```
 
 Et pour cargo le gestionnaire de paquet de l'ecosystème de Rust:
 
 ```bash
 $ cargo --version
-cargo 1.46.0 (149022b1d 2020-07-17)
+cargo 1.59.0 (49d8809dc 2022-02-10)
 ```
 
 ### Rustlings
