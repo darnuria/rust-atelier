@@ -47,6 +47,7 @@ impl Point2D { // Le type Self vaut le type après `impl`
     fn new(x: i32, y: i32) -> Point2D {
         unimplemented!("A vous de jouer!")
     }
+
     /// Add two Point2D together returns a new one.
     /// ```
     ///     let a = Point2D::new(0, 0);
@@ -55,6 +56,13 @@ impl Point2D { // Le type Self vaut le type après `impl`
     /// ```
     fn add(&self, p: &Point2D) -> Point2D {
         unimplemented!("A vous de jouer!")
+    }
+
+    /// Offre une representation textuelle pour un humain d'un point
+    /// `Point2D { x: 3, y: 5 }
+    fn show(self) -> String {
+        unimplemented!("Whops pas encore implementé!")
+        format!(???)
     }
 
     fn x(&self) -> i32 {

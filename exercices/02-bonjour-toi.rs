@@ -30,7 +30,8 @@ fn main() {
     println!("Bienvenu dans l'atelier d'initiation à Rust!");
 
     // Ci-dessous je vous invite à faire «dire» à votre programme,
-    // «Bonjour» suivit de votre prenom! Par defaut il affichera mon prénom
+    // «Bonjour» suivit de votre prenom! Par defaut il affichera le prenom d'un
+    // des intervenants.
     // Je vous invite à vous approprier ce code avec votre prénom! :D
     let prenom = "axel";
 //  ^                  ^
@@ -56,7 +57,6 @@ fn main() {
     // On peut faire la même chose avec des nombres:
     let age = 26;
     println!("{} a {} ans, c'est un bon age pour programmer.", prenom, age);
-    // Tout age est bon pour programmer. ;)
 }
 
 

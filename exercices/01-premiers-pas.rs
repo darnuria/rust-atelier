@@ -5,8 +5,12 @@
 //
 // 01-premiers-pas.rs
 //
+// Bienvenu!
+//
 // Dans cet exercice vous allez découvrir les commentaires, faire votre premier
 // programme il sera très simple, il ne fera rien!
+//
+// Le support sera les fichiers sources et les commentaires! Pas de diapo! ;)
 //
 // L'enjeux est de prendre en main votre éditeur de texte, d'apprendre à compiler
 // et de découvrir les erreurs de compilation.
@@ -17,23 +21,13 @@
 // - Point d'entrée du programme la fonction `main`
 // - Découverte des blocs `{}`
 // - Compilation de notre programme!
-// - Execution
+// - Execution du binaire
 //
 // -----------------------------------------------------------------------------
 
-
-// Bienvenu à cet atelier! L'objectif est de découvrir ensemble la programmation
-// à l'aide du langage Rust. L'atelier sera centré sur la pratique donc trève de
-// discussions! Le format principal sera le fichier source hautement documenté.
-
-// En Rust pour écrire des choses ignorées par le «compilateur» qui transforme
-// ce fichier en code machine on peut écrire des commentaires (comme toutes les lignes
-// çi-dessus) elles doivent commencer par // ou être englobée entre /* et */.
-
-/* <- Ceci est aussi un commentaire.
-   mais sur plusieurs lignes */
-
-// Notre premier programme Rust va être très simple, il ne va rien faire!
+// En Rust pour écrire du texte ignoré par le compilateur, l'outil qui valide et transforme
+// ce fichier en code machine on peut écrire des commentaires
+// elles doivent commencer par // ou être englobée entre /* et */.
 
 /* En Rust on structure notre code avec des fonctions, c'est comme des mini-programmes.
   Tout programme Rust contient une fonction `main`, c'est le *point-d'entrée* de notre programme.
@@ -45,9 +39,7 @@
 |      |                                                                        */
 fn main() {
 /* ^
-   \ main est le nom de notre fonction. */
-/*
-
+   \ main est le nom de notre fonction.
 /- Les accolades servent à découper des blocs en Rust ici le bloc de notre fonction!
 | */
 }

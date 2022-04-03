@@ -30,8 +30,9 @@
 //
 // 0. On complête la structure Point2D pour la faire compiler
 // 1. On ajoute une fonction `new` pour creer un Point2D
-// 1.1 Dériver `PartialEq` et `Debug` avec la directive de macro: `#[derive(...)`
+// 1.1 Dériver `PartialEq` et `Debug` avec la directive de macro: `#[derive(...)]`
 // 1.2 Dériver le trait `Copy` and `Clone`.
+//   https://doc.rust-lang.org/stable/book/appendix-03-derivable-traits.html#clone-and-copy-for-duplicating-values
 // 2. On associe la fonction `new` avec un bloc `impl Point2D {}`
 // 2. On crée une fonction `add` qui fait l'addition de 2 `Points2D`, `self` et  `p`
 // 2.0 Observer ce qui se passe si on tente de réutiliser un des deux arguments de `add`!
@@ -65,13 +66,6 @@ impl Point2D { // Le type Self vaut le type après `impl`
         Point2D { x, y }
     }
 
-    /// Offre une representation textuelle pour un humain d'un point
-    /// `Point2D { x: 3, y: 5 }
-    fn show(self) -> String {
-        unimplemented!("Whops pas encore implementé!")
-        format!(???)
-    }
-
     /// Renvoie la valeur pour `x` de la struct point courante
     fn x(self) -> i32 {
         self.x
@@ -95,6 +89,27 @@ impl Add for Point2D {
     }
 }
 
+impl fmt::Display for Point2D {
+    // Cette fois plus dur! Au lien d'ajouter une fonction `show` on
+    // implemente un comportement defini dans la lib standard: `Display` qui fait
+    // mieux que notre `show`.
+    // https://doc.rust-lang.org/std/fmt/trait.Display.html
+
+    /// Permet de formater un point
+    /// exemple:
+    /// ```rust
+    ///    assert_eq!("Point (1, 0)", format!("{}", Point::new(1, 0)))
+    /// ```
+    fn fmt(&self, fmt: &mut fmt::Formatter<'_>) -> Result<(), Error> {
+        // On va utiliser la macro `write!` qui permet d'ecrire une chaine dans un
+        // formattage
+
+        // A changer pour afficher proprement un point :)
+        write!(fmt, "Coucou je ne suis pas un {}!", "point")
+    }
+}
+
+
 
 
 fn main() {}
@@ -106,7 +121,7 @@ mod tests {
     #[test]
     fn test_new() {
         let a = Point2D::new(1, 2);
-        unimplemented!("A vous de jouer!");
+        assert_eq!(a, Point2D::new(2, 2), "<- Change moi :)");
     }
 
     #[test]
@@ -118,6 +133,14 @@ mod tests {
         assert_eq!(c.y(), 4);
 
         let e = Point2D::new(2, 4);
+        assert_eq!(c, e);
+    }
+
+    #[test]
+    fn test_fmt() {
+        let a = Point2D::new(1, 2);
+        // Vous pouvez changer le test et la doc si la facon d'fficher conviens pas! :)
+        assert_eq!("Point (1, 0)", format!("{}", a));
         assert_eq!(c, e);
     }
 }
