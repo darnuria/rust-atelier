@@ -1,0 +1,362 @@
+\documentclass[11pt,a4paper,addpoint,answers]{exam}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[]{lmodern}
+\usepackage[french]{babel}
+%\usepackage{mathtools}
+\usepackage[margin=2cm]{geometry} %layout
+\usepackage{graphicx}
+\usepackage{booktabs} % for much better looking tables
+% Put the bibliography in the ToC
+\usepackage[nottoc,notlof,notlot]{tocbibind}
+% Alter the style of the Table of Contents
+\usepackage[titles]{tocloft}
+
+\usepackage[pdfauthor={Axel Viala},
+  pdftitle={QCM ESGI Rust},
+  pagebackref=true,%
+  colorlinks=true,%
+  linkcolor=green,%
+  %urlcolor=green!70!black,
+  pdftex]{hyperref}
+\usepackage[ampersand]{easylist}
+\renewcommand{\solutiontitle}{}
+
+\usepackage{minted}
+\nopointsinmargin
+\pointformat{}
+
+\author{Axel Viala <axel.viala@darnuria.eu>}
+\title{Devoir maison: Programmation systèmes et Réseaux en Rust, contrôle de connaissances}
+\date{21 janvier 2019}
+
+\begin{document}
+  \maketitle
+  \makebox[\textwidth][l]{Nom et Prénom:\hrulefill}
+  \makebox[\textwidth][l]{Classe:\hrulefill}
+
+  \textbf{Rendu:} Vous devez rendre ce devoir, avant le dimanche 31 janvier 18h par courriel avec le sujet
+  \texttt{«[rust-esgi] QCM "votre promotion" "nom" "prenom"»} a mon adresse \emph{axel.viala@darnuria.eu}.
+  Vous pouvez soit répondre directement sur le PDF, soit imprimer et scanner/(scanner avec ordiphone) et m'envoyer le scan.
+  Le QCM est à faire seul, la clarté sera un plus, les mauvaises réponses font perdre des points.
+  \textbf{Objectifs:} Le but du contrôle de connaissances en début de cours est pour vous de vérifier où vous
+  en êtes par rapport au cours précédent.
+  \newline
+  Il s'agit pour moi un moyen de vérifier que la pédagogie est adaptée à la classe.
+  \newline
+  \textbf{Notation:} Les points sont indiqués à titre d'information, la notation peut changer pour
+  des raisons d'harmonisation. Les réponses fausses en QCM font perdre des points.
+  \begin{questions}
+
+    \section{Culture générale autour de Rust}
+
+    \question[1] En Rust, avez-vous à écrire les types par vous-même:
+    \begin{checkboxes}
+        \choice Oui comme en C++ sans \mintinline{C++}{auto}
+        \CorrectChoice Non le compilateur infére les types et parfois me demande du secours
+        \choice Comme en JavaScript ou Python les types sont gérées à l'exécution
+    \end{checkboxes}
+
+    \question[1] En Rust, quelles propositions sont vraies:
+    \begin{checkboxes}
+        \choice Rust gère la mémoire avec un gabarge collector
+        \CorrectChoice En Rust les allocations sont gérées par scope, le compilateur place les appels aux destructeurs
+        \choice En Rust par défaut \texttt{rustc} compile pour une machine virtuelle
+        \CorrectChoice \texttt{rustc} compile en assembleur natif pour mon ordinateur
+        \choice La mémoire allouée est dans le segment de tas (HEAP) sans que je le demande explicitement
+        \choice C'est moi qui appelle \mintinline{C}{free} pour libérer les allocations sur le tas/heap
+        \choice La gestion par défaut de la mémoire est gérée par un compteur de référence comme en Swift
+    \end{checkboxes}
+\newpage
+    \section{Syntaxe de Rust}
+
+    \question[1] En Rust, le mot clef \mintinline{rust}{let} sert à:
+    \begin{checkboxes}
+        \choice Faire un branchement conditionnel \emph{Il existe le \mintinline{rust}{if-let} mais c'est pas vraiment un branchement classique.}
+        \CorrectChoice Lier une expression à un nom (déclarer une variable).
+        \choice Par défaut la variable sera dans le tas/heap
+        \CorrectChoice Par défaut la variable sera allouée dans la pile/STACK
+        \CorrectChoice Il peut servir à destructurer une expression ex: \mintinline{rust}{let (a, b) = (1, 42);}
+    \end{checkboxes}
+
+    \question[1] En Rust, par défaut les variables sont:
+    \begin{checkboxes}
+        \CorrectChoice \emph{imutables} / constantes
+        \choice mutables
+    \end{checkboxes}
+
+    \question[1] Que dois-je faire si je souhaite échanger entre plusieurs threads en Rust?
+    \begin{checkboxes}
+        \CorrectChoice Par mémoire partagée: avec un compteur atomique de références \mintinline{rust}{std::sync::Arc} \href{https://doc.rust-lang.org/std/sync/struct.Arc.html}{doc} et une \mintinline{rust}{std::sync::Mutex} \href{https://doc.rust-lang.org/std/sync/struct.Mutex.html}{doc}
+        \CorrectChoice Par passage de messages: avec des channels: voir \mintinline{rust}{std::sync::mpsc} \href{https://doc.rust-lang.org/rust-by-example/std_misc/channels.html}{doc}
+        \choice Une simple référence mutable suffit
+        \choice Je ne peux pas
+    \end{checkboxes}
+
+    \question[1] A quoi sert \mintinline{rust}{std::sync::Mutex} ?
+    \begin{checkboxes}
+        \choice Compter des références
+        \CorrectChoice Protéger un accès concurent à une ressource
+        \choice Déterminer quand libérer la mémoire
+    \end{checkboxes}
+
+    \question[1] A quoi sert \mintinline{rust}{std::sync::Arc} ?
+    \begin{checkboxes}
+        \CorrectChoice Compter des références de façon atomique pour liberer si le compteur est a 0
+        \choice Protéger un accès concurent à une ressource
+        \CorrectChoice Déterminer quand libérer la mémoire (J'ai été généreux et pas compter l'oubli de cette réponse).
+    \end{checkboxes}
+
+    \question[1] Quelles propositions pour le code Rust suivant sont vraies.
+\begin{minted}{rust}
+// Rappel: Vec n'implemente pas copy.
+let v = vec![2, 42, 1];
+let s = v;
+println!("{}", v[0]); // v[0] fait un borrow.
+\end{minted}
+
+\begin{checkboxes}
+    \choice Ce code compile
+    \CorrectChoice \mintinline{rust}{s} est un \emph{move} (capture), de \mintinline{rust}{v} donc \mintinline{rust}{v} n'est plus utilisable
+    \choice \mintinline{rust}{s} est un \emph{borrow} (emprunt), de \mintinline{rust}{v}.
+\end{checkboxes}
+
+\question[1] Expliquer avec vos mots le concept de \emph{move semantics} (capture ou déplacement en Français)/.
+\ifprintanswers
+\begin{solution}
+Un \emph{move} ou \emph{déplacement} est l'action lorsque une valeur change de propriétaire (\emph{owner}),
+par exemple lors d'un appel de fonction, une liaison avec \mintinline{rust}{let} ou lors d'une capture dans une closure.
+
+Cette variable n'est alors plus utilisable ayant été déplacée. Dans le cas ou on désire pas
+de déplacement ni de copie on peut faire un emprunt.
+Certains types implementent \emph{Copy et Clone} et donc le problème ne se pose pas (ex: \mintinline{rust}{i32}).
+\end{solution}
+\else
+\vspace{2in}
+\fi
+
+\newpage
+\question[1] En Rust, implémenter le \mintinline{rust}{trait Copy} fait que votre type sera:
+    \begin{checkboxes}
+        \CorrectChoice Dupliqué et passé par copie bit à bit.
+        \CorrectChoice Après un passage de paramètre j'ai donc 2 occurences de mon types dans la mémoire
+        \choice Modifier la copie modifie l'original
+        \choice C'est gratuit en terme de performance pour les grosses structures
+   \end{checkboxes}
+
+    \question[1] Le type \mintinline{rust}{std::boxed::Box} sert a quoi? Dans quels cas en avez vous absolument
+    besoin?
+\ifprintanswers
+\begin{solution}
+\mintinline{rust}{std::boxed::Box} permet de faire des allocations sur le tas \emph{Heap} et manage sa
+desallocation grace à l'ownership. Il s'agit d'un pointeur dit intelligent comparable à un \mintinline{c++}{std::unique_ptr<T>} de \emph{C++}.
+\end{solution}
+\else
+\vspace{2in}
+\fi
+
+\question[1] A quoi sert le mot clef \mintinline{rust}{match}?
+\begin{checkboxes}
+    \CorrectChoice Faire du filtrage par motif \emph{pattern matching}
+    \choice Faire des allocations sur la Heap
+    \CorrectChoice Déconstruire des \mintinline{rust}{enum} selon leur contenu
+    \choice Sur une \mintinline{rust}{enum} je peux filtrer seulement certains variants d'une \mintinline{rust}{enum}
+    \CorrectChoice Sur une \mintinline{rust}{enum} je dois être exhaustif et filtrer tout les variants
+    \CorrectChoice Je peux matcher autre chose que des \mintinline{rust}{enum} par exemle entiers et chaines
+\end{checkboxes}
+
+\question[1] En Rust je peux emprunter \emph{borrow} une référence sur une valeur avec \mintinline{rust}{&}
+et \emph{borrow} mutablement avec \mintinline{rust}{mut &}. Quelles sont les règles?
+\begin{checkboxes}
+    \CorrectChoice Une valeur immutable peut être partagée imutablement plusieurs fois en lecture
+    \CorrectChoice Une valeur mutable peut être partagée mutablement par un lecteur/écrivain
+    \choice Une valeur mutable peut être partagée mutablement par plusieurs lecteur/écrivain
+    \choice Une valeur immutable peut être partagée mutablement quand je veux
+\end{checkboxes}
+
+Soit le code suivant: \href{https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&code=fn%20main()%20%7B%0A%20%20%20%20%2F%2F%20Indice%20les%20%26str%20n%27implementent%20pas%20%60Copy%60%2C%20ni%20%60Clone%60.%0A%20%20%20%20%2F%2F%20Indice2%3A%20Si%20vous%20%C3%AAtes%20pas%20Copy%20vous%20%C3%AAtes%20Move!%20%3B)%0A%20%20%20%20let%20mut%20s%20%3D%20vec!%5B42%2C%2021%2C%200%5D%3B%0A%20%20%20%20let%20a%20%3D%20%26s%5B1%5D%3B%0A%20%20%20%20s.remove(1)%3B%0A%20%20%20%20println!(%22%7B%7D%22%2C%20a)%3B%0A%7D}{code sur le playpen}
+
+\begin{minted}{rust}
+fn main() {
+    // Indice: les &str n'implémentent pas `Copy`, ni `Clone`.
+    // Indice2: Si vous n'êtes pas Copy vous êtes Move! ;)
+    let mut s = vec![42, 21, 0];
+    let a = &s[1];
+    s.remove(1);
+    println!("{}", a);
+}
+\end{minted}
+
+\question[1] Expliquer succinctement pourquoi ce code ne compile t-il pas? (indice borrow mutable/immutable)
+\ifprintanswers
+\begin{solution}
+Ici \emph{Rust} interdit
+\end{solution}
+\else
+\vspace{2in}
+\fi
+
+\subsection{struct et question de mémoire}
+\question[1] Soit le code suivant: (\href{https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&code=use%20std%3A%3Aboxed%3A%3ABox%3B%0A%0Astruct%20Point%20%7B%0A%20%20%20%20x%3A%20i32%2C%0A%20%20%20%20y%3A%20i32%20%0A%7D%0A%0Afn%20main()%20%7B%0A%20%20%20%20let%20p%20%3D%20Point%20%7B%20x%3A%202%2C%20y%3A%204%7D%3B%0A%20%20%20%20let%20h%20%3D%20Box%3A%3Anew(Point%20%7B%20x%3A%206%2C%20y%3A%2042%20%7D)%3B%0A%7D}{lien playpen})
+\begin{minted}{rust}
+use std::boxed::Box;
+
+struct Point {
+    x: i32,
+    y: i32
+}
+
+fn main() {
+    let p = Point { x: 2, y: 4 };
+    let h = Box::new(Point { x: 6, y: 42 });
+}
+\end{minted}
+
+\question[1] Quelle place occupe la structure \mintinline{rust}{Point} en mémoire ? Indice: \href{https://doc.rust-lang.org/std/mem/fn.size_of.html}{doc size\_of}
+    \begin{checkboxes}
+        \CorrectChoice 64bits
+        \choice 128bits
+        \choice 42bits
+        \choice 32bits
+   \end{checkboxes}
+
+\question[1] Où est située la valeur de \mintinline{rust}{p} ?
+    \begin{checkboxes}
+        \CorrectChoice Stack/Pile
+        \choice Heap/Tas
+   \end{checkboxes}
+
+   \question[1] Où est située la valeur de \mintinline{rust}{h} ?
+    \begin{checkboxes}
+        \choice Stack/Pile
+        \CorrectChoice Heap/Tas
+   \end{checkboxes}
+
+   \question[1] Où est située le pointeur \mintinline{rust}{h} ?
+   \begin{checkboxes}
+       \CorrectChoice Stack/Pile
+       \choice Heap/Tas
+  \end{checkboxes}
+
+  \question[1] Dessiner comment est organisée la mémoire pile et tas à la fin de la fonction \mintinline{rust}{main()} avant les dessallocations.
+  Préciser ce qui est le Tas/Heap, la Pile/Stack et travers les éventuels pointeurs. Indice: les questions précédentes devraient être des
+  indices.
+  \ifprintanswers
+\begin{solution}
+\end{solution}
+\else
+\vspace{2in}
+\fi
+
+
+\question[1] Le type \mintinline{rust}{std::boxed::Box} sert a quoi? Dans quels cas en avez vous absolument
+besoin?
+\ifprintanswers
+\begin{solution}
+\end{solution}
+\else
+\vspace{2in}
+\fi
+
+\subsection{Enum, mémoire et developpement}
+
+Soit un type \mintinline{rust}{Peano} qui implémente des nombres de \emph{Peano}.
+\href{https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&code=use%20std%3A%3Aboxed%3A%3ABox%3B%0A%0Aenum%20Peano%20%7B%0A%20%20%20%20Zero%2C%0A%20%20%20%20S(Box%3CPeano%3E)%0A%7D%0A%0Afn%20main()%20%7B%0A%20%20%20%20let%20z%20%3D%20Peano%3A%3AZero%3B%0A%20%20%20%20let%20h%20%3D%20Peano%3A%3AS(Box%3A%3Anew(Peano%3A%3AZero))%3B%0A%7D}{lien playppen}
+\begin{minted}{rust}
+use std::boxed::Box;
+
+enum Peano {
+    Zero,
+    S(Box<Peano>)
+}
+
+fn main() {
+    let z = Peano::Zero;
+    let h = Peano::S(Box::new(Peano::Zero));
+}
+\end{minted}
+
+\question[1] Où est située la valeur de \mintinline{rust}{z} ?
+    \begin{checkboxes}
+        \CorrectChoice Stack/Pile
+        \choice Heap/Tas
+   \end{checkboxes}
+
+   \question[1] Où est située la valeur de \mintinline{rust}{h} ?
+    \begin{checkboxes}
+        \CorrectChoice La valeur du variant \mintinline{rust}{Peano::S} est dans la Stack/Pile
+        \CorrectChoice \mintinline{rust}{Zero} dans le Heap/Tas
+   \end{checkboxes}
+
+\question[1] Dessiner comment est organisée la mémoire pile et tas à la fin de la fonction \mintinline{rust}{main()}
+avant les dessallocations.
+Préciser ce qui est le Tas/Heap, la Pile/Stack et travers les eventuels pointeurs. Indice: les questions précédentes devraient être des
+indices.
+\ifprintanswers
+\begin{solution}
+\end{solution}
+\else
+\vspace{2in}
+\fi
+
+On veut pouvoir écrire des fonctions pour manipuler nos nombres de \emph{Peano}.
+Vous devrez dans les questions suivantes, remplacer les \emph{???}, écrire le code des fonctions dans un \textbf{fichier} nommée \texttt{nom\_prenom\_promo.rs}.
+
+Indice: vous aurez besoin du mot clef \mintinline{rust}{match} et pourquoi pas de récursivité pour vous simplifier l'écritude du code.
+\href{https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&code=use%20std%3A%3Aboxed%3A%3ABox%3B%0A%0Aenum%20Peano%20%7B%0A%20%20%20%20Zero%2C%0A%20%20%20%20S(Box%3CPeano%3E)%0A%7D%0A%0Aimpl%20Peano%20%7B%0A%20%20%20%20%2F%2F%2F%20Cr%C3%A9e%20un%20nombre%20de%20peano%20depuis%20un%20nombre%20natif%20sur%2032bits.%0A%20%20%20%20%2F%2F%2F%20%60%60%60rust%0A%20%20%20%20%2F%2F%2F%20assert_eq(new_from_i32(2)%2C%20Peano%3A%3AS(Box%3A%3Anew(Peano%3A%3AS(Box%3A%3Anew(Peano%3A%3AZero))))%3B%0A%20%20%20%20%2F%2F%2F%20%60%60%60%0A%20%20%20%20fn%20new_from_i32(n%3A%20u32)%20-%3E%20Peano%20%7B%0A%20%20%20%20%20%20%20%20%0A%20%20%20%20%7D%0A%20%20%20%20%0A%20%20%20%20%2F%2F%2F%20Transforme%20un%20Peano%20en%20nombre%0A%20%20%20%20%2F%2F%2F%20%60%60%60rust%0A%20%20%20%20%2F%2F%2F%20assert_eq(Peano%3A%3AS(Box%3A%3Anew(Peano%3A%3AZero)).to_i32()%2C%201)%3B%0A%20%20%20%20%2F%2F%2F%20%60%60%60%0A%20%20%20%20fn%20to_i32(%3F%3F%3F)%20-%3E%20u32%20%7B%0A%20%20%20%20%20%20%20%20%0A%20%20%20%20%7D%0A%20%20%20%20%0A%20%20%20%20%2F%2F%2F%20Additionne%20deux%20Peano%20entre%20eux.%0A%20%20%20%20%2F%2F%2F%20Exemple%0A%20%20%20%20%2F%2F%2F%20%60%60%60rust%0A%20%20%20%20%2F%2F%2F%20assert_eq!(p%2C%20p.add(Peano%3A%3AZero))%3B%0A%20%20%20%20fn%20add(%3F%3F%3F%2C%20%3F%3F%3F)%20-%3E%20%3F%3F%3F%20%7B%0A%0A%20%20%20%20%7D%0A%7D%0A%0Afn%20main()%20%7B%0A%20%20%20%20let%20z%20%3D%20Peano%3A%3AZero%3B%0A%20%20%20%20let%20h%20%3D%20Peano%3A%3AS(Box%3A%3Anew(Peano%3A%3AZero))%3B%0A%7D}{lien playpen rust}
+\begin{minted}{rust}
+impl Peano {
+    /// Crée un nombre de peano depuis un nombre natif sur 32bits.
+    /// ```rust
+    /// assert_eq(new_from_i32(2), Peano::S(Box::new(Peano::S(Box::new(Peano::Zero))));
+    /// ```
+    fn new_from_i32(n: u32) -> Peano {
+
+    }
+
+    /// Transforme un Peano en nombre
+    /// ```rust
+    /// assert_eq(Peano::S(Box::new(Peano::Zero)).to_i32(), 1);
+    /// ```
+    fn to_i32(???) -> u32 {
+
+    }
+
+    /// Additionne deux Peano entre eux.
+    /// Exemple
+    /// ```rust
+    /// assert_eq!(p, p.add(Peano::Zero));
+    fn add(???, ???) -> ??? {
+
+    }
+}
+\end{minted}
+\question[1] Écrivez le code de la fonction \mintinline{rust}{new_from_i32}.
+
+\ifprintanswers
+\begin{solution}
+\end{solution}
+\else
+\vspace{2in}
+\fi
+
+\question[1] Écrivez le code de la fonction \mintinline{rust}{to_i32}.
+
+\ifprintanswers
+\begin{solution}
+\end{solution}
+\else
+\vspace{2in}
+\fi
+
+\question[1] Écrivez le code de la fonction \mintinline{rust}{add}.
+
+\ifprintanswers
+\begin{solution}
+\end{solution}
+\else
+\vspace{2in}
+\fi
+
+  \end{questions}
+\end{document}

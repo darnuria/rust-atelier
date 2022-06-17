@@ -1,0 +1,122 @@
+\documentclass[11pt,a4paper,addpoint]{exam}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[]{lmodern}
+\usepackage[french]{babel}
+%\usepackage{mathtools}
+\usepackage[top=1 cm, bottom=1 cm, left=1.5 cm, right=1.5 cm]{geometry} %layout
+\usepackage{graphicx}
+\usepackage{booktabs} % for much better looking tables
+% Put the bibliography in the ToC
+\usepackage[nottoc,notlof,notlot]{tocbibind}
+% Alter the style of the Table of Contents
+\usepackage[titles]{tocloft}
+
+\usepackage[pdfauthor={Axel Viala},
+  pdftitle={QCM 01 L2 Paris 8 Programmation avancée Rust},
+  pagebackref=true,%
+  colorlinks=true,%
+  linkcolor=green,%
+  %urlcolor=green!70!black,
+  pdftex]{hyperref}
+\usepackage[ampersand]{easylist}
+\renewcommand{\solutiontitle}{}
+
+\usepackage{minted}
+\nopointsinmargin
+\pointformat{}
+
+\author{\small{Axel Viala <axel@darnuria.eu>}}
+\title{\small{CC01: Questions de code mystère}}
+\date{\small{\today}}
+
+\begin{document}
+  \maketitle
+  \makebox[\textwidth][l]{NOM et Prénom:\hrulefill}
+  \makebox[\textwidth][l]{Groupe : L2 - A}
+    
+%   \textbf{Rendu:} Vous devez rendre ce devoir, avant le dimanche 31 janvier 18h par courriel avec le sujet
+%   \texttt{«[rust-esgi] QCM "votre promotion" "nom" "prenom"»} a mon adresse \emph{axel.viala@darnuria.eu}.
+%   Vous pouvez soit répondre directement sur le PDF, soit imprimer et scanner/(scanner avec ordiphone) et m'envoyer le scan.
+%   Le QCM est à faire seul, la clarté sera un plus, les mauvaises réponses font perdre des points.
+%   \textbf{Objectifs:} Le but du contrôle de connaissances en début de cours est pour vous de vérifier où vous
+%   en êtes par rapport au cours précédent.
+%   \newline
+%   Il s'agit pour moi un moyen de vérifier que la pédagogie est adaptée à la classe.
+%   \textbf{Notation:} Les points sont indiqués à titre d'information, la notation peut changer pour des raisons d'harmonisation. Les réponses fausses en QCM font perdre des points.  
+  \begin{questions}
+
+\section{Rust syntaxe, typage, concepts de base}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question[1] Ce code peut-il compiler? Pourquoi dans les deux cas:
+\begin{minted}{rust}
+let mut a = vec![1, 2, 4, 5, 12];
+let mystère = &a[4];
+a.pop();
+println!("{}", mystère);
+\end{minted}
+\begin{itemize}
+    \item \mintinline{rust}{&a[i]} corresponds à \mintinline{Rust}{fn index(Vec<T>, index: usize) -> &T} 
+    \item \mintinline{rust}{pub fn pop(&mut self) -> Option<T>}
+    \item \mintinline{rust}{T} est un \mintinline{rust}{i32}
+\end{itemize}
+
+\ifprintanswers
+\begin{solution}
+    Ne compile pas: On ne peux pas emprunter \mintinline{rust}{&a[4]} et ensuite \mintinline{rust}{pop} c'est une invalidation de référence Rust ne laisse pas compiler par les règles du borrowing.
+\end{solution}
+\else
+\vspace{3in}
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question[1] Quel type represente une valeur qui peut-être absente en Rust. Donner une définition de ce type en Rust et un exemple d'usage.
+
+\ifprintanswers
+\begin{solution}
+
+\end{solution}
+\else
+\vspace{1in}
+\fi
+
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question[1] Soit le code suivant:
+\begin{minted}{rust}
+let a = vec![1, 42, 4, 1];
+let b = a;
+println!("{:?}", a);
+\end{minted}
+Est-ce que ce code compile? Pourquoi dans les deux cas?
+\ifprintanswers
+\begin{solution}
+
+\end{solution}
+\else
+\vspace{2in}
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question[1] À quoi sert le mot clef \mintinline{rust}{match}? À quoi sert une \mintinline{rust}{enum}? Donner le cas obligatoirement pour une \mintinline{rust}{enum} et eventuellemnent les autres cas.
+\ifprintanswers
+\begin{solution}
+
+\end{solution}
+\else
+\vspace{3in}
+\fi
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question[1] Expliquer ce qu'est l'immutabilité, les références et les règles importantes de partage associées et le concept d'ownership (propriété). Bonus: Tentez d'expliquer quels bugs sont exclus grace à ces régles et dans quel cas sur des procésseurs modernes cela peut-être pratique.
+\ifprintanswers
+\begin{solution}
+
+\end{solution}
+\else
+\vspace{1in}
+\fi
+
+\end{questions}
+\end{document}

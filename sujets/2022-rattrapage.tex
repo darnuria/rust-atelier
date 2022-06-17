@@ -1,0 +1,234 @@
+\documentclass[11pt,a4paper,addpoint]{exam}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[]{lmodern}
+\usepackage[french]{babel}
+%\usepackage{mathtools}
+\usepackage[margin=2cm]{geometry} %layout
+\usepackage{graphicx}
+\usepackage{booktabs} % for much better looking tables
+% Put the bibliography in the ToC
+\usepackage[nottoc,notlof,notlot]{tocbibind}
+% Alter the style of the Table of Contents
+\usepackage[titles]{tocloft}
+\usepackage{multicol}
+
+\usepackage{minted}
+\usepackage{titling}
+\setlength{\droptitle}{-3cm}
+
+\nopointsinmargin
+\pointformat{}
+
+\usepackage[pdfauthor={Axel Viala},
+  pdftitle={Seconde-session 2021-2022: L2 Programmation avancée},
+  pagebackref=true,%
+  colorlinks=true,%
+  linkcolor=green,%
+  %urlcolor=green!70!black,
+  pdftex]{hyperref}
+\usepackage[ampersand]{easylist}
+\renewcommand{\solutiontitle}{}
+
+\author{\normalsize{Axel Viala <axel.viala@darnuria.eu>}}
+\title{\normalsize{\textbf{Seconde-session 2021-2022: Programmation avancée}}}
+
+\begin{document}
+  \maketitle
+  \begin{multicols}{2}
+
+  \makebox[\textwidth][l]{Nom et Prénom:}
+  \makebox[\textwidth][l]{Numéro étudiant:}
+  \end{multicols}
+  \textbf{Objectifs:} La clarté des réponses sera appréciée, veillez à écrire soigneusement. Les questions portent sur le langage Rust.
+  Notes de cours autorisé. Réponse sur une copie a part encouragée.
+  \newline
+  \begin{questions}
+
+    \section{Généralités}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \question[1] Par défaut les déclarations de variables sont:
+    \begin{checkboxes}
+        \CorrectChoice immutables
+        \choice mutables
+    \end{checkboxes}
+
+\question[1] Toute valeur par exemple \mintinline{rust}{struct A} hors type de base est:
+ \begin{checkboxes}
+    \choice Pris par réfèrence
+    \CorrectChoice Déplacé
+    \choice Copié
+\end{checkboxes}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question[1] Decrivez brievement les différentes formes de passage pour les valeurs:
+\begin{itemize}
+    \item Par deplacement \textit{move}
+    \item Par référence \textit{borrow} (mut/immutable)
+    \item Par copie \textit{copy}
+\end{itemize}
+\vspace{1in}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question[1] Anatomie d'un code Rust : associez les termes suivants au code suivant:
+\begin{multicols}{2}
+\begin{itemize}
+    \item Opérateur d'addition
+    \item Nom de variable
+    \item Mot clef de déclaration de variable
+    \item Argument de fonction
+    \item Type
+    \item Mot clef de déclaration de fonction
+    \item Opérateur de d'enchaînement d'instruction
+    \item Bloc du corps de la fonction
+    \item Nom de fonction
+    \item Appel de fonction associée à un type
+    \item Argument de fonction passé en appel
+\end{itemize}
+\end{multicols}
+\begin{minted}{rust}
+fn foo(a: i32, b: i32) -> i32 {
+    let t = a.min(b);
+    t + a + b
+}
+\end{minted}
+\vspace{2in}
+
+\question[1] Donnez une signature de fonction polymorphique/générique en Rust, expliquez succinctement l'intéret du polymorphisme.
+\vspace{1.5in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question[1] Affichage et return, dans le code ci dessous, qu'afficherait le
+programme s'il appellait \mintinline{rust}{mystere(1)} une fois? Quelle est la valeur de retour de mystere avec cet appel?
+\begin{minted}{rust}
+fn mystere(a: i32) -> i32 {
+    println!("Mon mystère: {}", a);
+    a + 42
+}
+\end{minted}
+\vspace{1in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question[1] Dans ce code, comment est passé \mintinline{rust}{a}, comment est passé \mintinline{rust}{b}.
+Ce code compile t'il?
+\begin{minted}{rust}
+fn surprise(a: &mut i32, b: i32) {
+    *a += b;
+}
+\end{minted}
+\vspace{1in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question[1] La fonction suivante peut-elle compiler ? Justifiez votre réponse.
+\begin{minted}{rust}
+fn mystere(a: i32) {
+    match a {
+        0 => 1,
+        1 => 2 * a,
+        n => a - a * 2,
+    }
+}
+\end{minted}
+\vspace{1in}
+\pagebreak
+
+\question[1] Rédigez le code néccessaire pour que \texttt{add\_one} ait le comportement attendu dans sa documentation. Plusieurs solutions possibles.
+\texttt{unwrap}, \texttt{panic}, \texttt{unsafe} et \texttt{except} interdit.
+\begin{minted}{rust}
+/// Documentation de la fonction add_one
+/// Ajoute la valeur derriere x, a un nombre contenu dans un Option, sinon None.
+/// This function n'appelle pas `panic!()`.
+fn add_one(a: Option<i32>, x: &i32) -> Option<i32> {
+
+
+
+
+
+}
+\end{minted}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question[1] Implémentations de fonctions sur un type. On souhaite calculer
+la distance entre deux points via un \texttt{trait} .
+
+\begin{minted}{rust}
+struct Point {
+    x: f32,
+    y: f32,
+}
+
+trait Distance {
+    fn distance(&self, other: &Self) -> f32;
+}
+
+// A vous de completer les _____
+
+____ ___________  for __________ {
+
+    // Completer les trou et ____.
+    /// Calcule la distance entre deux `Points' via la formule
+    /// `distance = sqrt((x - x') * (x - x'), (y - y') * (y - y'))`.
+    /// Note: sqrt existe dans le module f32 et se nomme: sqrt()`
+    fn ______(                             ) -> f32 {
+        // A completer
+
+
+
+
+
+
+    }
+}
+\end{minted}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\question[1] Écrire une fonction \mintinline{rust}{simple_open} pour ouvrir un fichier sinon renvoyer une erreur, de signature:\\
+\mintinline{rust}{fn simple_open(path: &str) -> Result<File, SimpleError>}
+
+
+On dispose de \mintinline{rust}{pub fn open<P: AsRef<Path>>(path: P) -> Result<File>}.
+\mintinline{rust}{path} qui peut être une chaine de caractères.
+
+On souhaite en cas d'erreur une Erreur generique \mintinline{Rust}{Result::Err(SimpleError)}  ou renvoyer \mintinline{rust}{Ok(File)}. indice: \mintinline{rust}{match} ou \mintinline{rust}{map_err}.
+\mintinline{rust}{SimpleError} sera une unit struct.
+\vspace{1in}
+
+\section{Implémentation d'une machine virtuelle}
+
+Dans cette section il est proposé de réaliser une machine virtuelle a pile, aura une mémoire d'instructions representée par un \texttt{Vec<Instruction>} et une pile de travail representée par un \texttt{Vec<i16>}.
+
+On ne \textbf{réalisera pas} la transformation du texte vers notre evaluateur. Pour cet exercice tout sera fondé sur votre énumeration \texttt{Instruction}.
+
+La machine aura les instructions suivantes :
+
+\begin{itemize}
+    \item Agissant sur les deux entiers au sommet de pile: Addition, Soustraction
+    \item Pousse: Ajoute un \texttt{i16} sur la pile
+    \item Duplique: Duplique le sommet de pile
+    \item Supprime: Retire le sommet de pile
+\end{itemize}
+
+Votre machine virtuelle et son implémentation pourrons executer: \texttt{1 1 + duplique +} ce qui donne en décomposé : \texttt{1 1 +} soit \texttt{2} sur la pile, puis duplique \texttt{2} donc \texttt{2 2} en pile puis \texttt{+} soit \texttt{4} sur le sommet de pile.
+
+\mintinline{rust}{ExecError::PileInsuffisante} est retourné en cas d'absence de suffisament d'élements sur la pile pour une instruction.
+La gestion des erreurs est valorisé a la notation.
+
+\question[1] Réaliser une enumération \texttt{Instruction} representant les instructions décrite ci dessus.
+
+\question[1] Écrire une structure \texttt{VirtualMachine} qui contient notre tableau d'\texttt{Instructions}, la pile.
+Indice: utilisez des \texttt{Vec}, et tout champ que vous jugerez pertinent pour votre implémentation.
+
+\question[1] Écrire une enumération \texttt{ExecError} qui contient un unique variant \texttt{PileInsuffisante}.
+
+\question[1] Écrire les fonctions \texttt{new}, \texttt{eval} associées à la structure \texttt{VirtualMachine}.
+\begin{itemize}
+    \item \texttt{new} permet de construire une machine virtuelle avec une pile d'instructions passée par déplacement. La pile de travail sera initialisée vide.
+    \item \texttt{eval} fonction qui execute les instructions dans la pile d'instructions. Cette fonction renvoie un \texttt{Result<(), ExecError>}.
+\end{itemize}
+\vspace{5in}
+
+
+\end{questions}
+\end{document}

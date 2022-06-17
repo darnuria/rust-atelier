@@ -1,0 +1,184 @@
+\documentclass[11pt,a4paper,addpoint]{exam}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[]{lmodern}
+\usepackage[french]{babel}
+%\usepackage{mathtools}
+\usepackage[top=1 cm, bottom=1 cm, left=1.5 cm, right=1.5 cm]{geometry} %layout
+\usepackage{graphicx}
+\usepackage{booktabs} % for much better looking tables
+% Put the bibliography in the ToC
+\usepackage[nottoc,notlof,notlot]{tocbibind}
+% Alter the style of the Table of Contents
+\usepackage[titles]{tocloft}
+
+\usepackage[pdfauthor={Axel Viala},
+  pdftitle={QCM 01 L2 Paris 8 Programmation avancée Rust},
+  pagebackref=true,%
+  colorlinks=true,%
+  linkcolor=green,%
+  %urlcolor=green!70!black,
+  pdftex]{hyperref}
+\usepackage[ampersand]{easylist}
+\renewcommand{\solutiontitle}{}
+
+\usepackage{minted}
+\nopointsinmargin
+\pointformat{}
+
+\author{Axel Viala <axel@darnuria.eu>}
+\title{CC00: Controle de connaissance en programmation avancée}
+\date{\today}
+
+\begin{document}
+  \maketitle
+  \makebox[\textwidth][l]{Nom et Prénom:\hrulefill}
+  \makebox[\textwidth][l]{Groupe : L2 \hrulefill}
+
+%   \textbf{Rendu:} Vous devez rendre ce devoir, avant le dimanche 31 janvier 18h par courriel avec le sujet
+%   \texttt{«[rust-esgi] QCM "votre promotion" "nom" "prenom"»} a mon adresse \emph{axel.viala@darnuria.eu}.
+%   Vous pouvez soit répondre directement sur le PDF, soit imprimer et scanner/(scanner avec ordiphone) et m'envoyer le scan.
+%   Le QCM est à faire seul, la clarté sera un plus, les mauvaises réponses font perdre des points.
+%   \textbf{Objectifs:} Le but du contrôle de connaissances en début de cours est pour vous de vérifier où vous
+%   en êtes par rapport au cours précédent.
+%   \newline
+%   Il s'agit pour moi un moyen de vérifier que la pédagogie est adaptée à la classe.
+%   \textbf{Notation:} Les points sont indiqués à titre d'information, la notation peut changer pour des raisons d'harmonisation. Les réponses fausses en QCM font perdre des points.
+  \textbf{Notation:} Les réponses fausses en QCM font perdre des points.\\
+  \textbf{Attendus:} Questions basées sur des concepts abordés dans les 4 premiers chapitre du livre "The Rust Programming Language", Rustlings jusqu'à \texttt{quiz1.rs} et le cours.
+  \begin{questions}
+
+    \section{Rust syntaxe, typage, concepts de base}
+
+    \question[1] En Rust, avez-vous à écrire les types par vous-même:
+    \begin{checkboxes}
+        \choice Oui, comme en C
+        \CorrectChoice Non, le compilateur infère les types et parfois me demande du secours
+        \choice Comme en JavaScript ou Python, les types sont gérés à l'exécution
+    \end{checkboxes}
+
+    \ifprintanswers
+    \begin{solution}
+        En Rust les types a l'intérieur des fonctions sont déterminé à la compilation, souvent on est pas obligé de les écrires ils sont inférées par un algorithme, qui les determines en fonction des informations par exemple de la fonction. Cependant on dois typer les signatures de fonctions.
+    \end{solution}
+    \else
+    \fi
+
+
+    \question[1] Expliquez avec vos mots ce qu'est un type et le typage. Exemples de types: \mintinline{rust}{i32}, \mintinline{rust}{bool} ou même \mintinline{rust}{String}.
+    \ifprintanswers
+    \begin{solution}
+        Un type regroupe un ensemble de valeurs (vide ou non) derrière un nom en général ses valeurs partageront des propriétés propres,
+        par exemple les \mintinline{rust}{i32} regroupe les entiers signés sur 32bits comme -1, 0, 1, 2, 3. Et \mintinline{rust}{String} les chaines de caratères.
+        Le typage c'est le système qui a pour but d'appliquer et de faire respecter les types dans les expressions exemple on peut pas additionner les \mintinline{rust}{String} et les \mintinline{rust}{i32}.
+    \end{solution}
+    \else
+    \vspace{2in}
+    \fi
+
+    \section{Syntaxe de Rust}
+
+    \question[1] Expliquez à quoi sert le mot clef \mintinline{rust}{let} donner un exemple court. Bonus: expliquez avec vos mots le destructuring.
+    \ifprintanswers
+    \begin{solution}
+    Le mot clé  \mintinline{rust}{let} sert a déclarer une liaison entre un
+    nom et une valeur. Exemple : \mintinline{rust}{let a = 42;}.
+
+    Réponse au bonus: le destructuring permet de lier un nom sur des valeurs complexes comme un tuple exemple: \mintinline{rust}{let (nom, age) = ("Axel", 29);}
+    \end{solution}
+    \else
+    \vspace{1.5in}
+    \fi
+
+    \question[1] En Rust les variables sont ? (exemple: \mintinline{rust}{let val = 42;})
+    \begin{checkboxes}
+        \CorrectChoice \emph{Imutables}: ne peuvent pas changer de valeur.
+        \choice \emph{Mutables}: peuvent changer de valeur.
+    \end{checkboxes}
+    \ifprintanswers
+    \begin{solution}
+        En effet par défaut tout est constant il faut ajouter \mintinline{rust}{mut} pour pouvoir rendre mutable une variable ou un paramètre de fonction comme en OCaml ou Haskell ou Swift.
+        C'est l'inverse du C
+    \end{solution}
+    \else
+    \fi
+
+    \question[1] Le code suivant peut-il compiler? Expliquer pourquoi et comment corriger si il ne compile pas.
+\begin{minted}{rust}
+let age = 29;
+age += 1;
+\end{minted}
+
+\ifprintanswers
+\begin{solution}
+Ce code ne peut pas compiler car par défaut les valeurs sont mutables en Rust.
+Il faut utiliser de mot clef \mintinline{rust}{mut} en changeant la déclaration en: \mintinline{rust}{let mut age = 29;}.
+\end{solution}
+\else
+\vspace{1.5in}
+\fi
+
+\question[1] Anatomie de la signature (ou type) d'une fonction.
+Combien de paramètres accepte la fonction? Quel est le type de \mintinline{rust}{a}?
+quel est le nom de la fonction? Quel est le type de retour de la fonction?
+\begin{minted}{rust}
+fn ultimate_function(a: i32, b: i32) -> bool { a == b }
+\end{minted}
+\ifprintanswers
+\begin{solution}
+    \begin{itemize}
+        \item \mintinline{rust}{ultimate_function} accepte 2 paramètres
+        \item \mintinline{rust}{a} est de type \mintinline{rust}{i32}
+        \item Son nom est \mintinline{rust}{ultimate_function}
+        \item Le type de retour de \mintinline{rust}{ultimate_function} est:  \mintinline{rust}{bool}
+    \end{itemize}
+\end{solution}
+\else
+\begin{itemize}
+    \item
+    \item
+    \item
+    \item
+\end{itemize}
+\vspace{0.5in}
+\fi
+
+\question[1] Voici le code mystère suivant: Aide mémoire: \mintinline{rust}{""} est de type
+\mintinline{rust}{&str}.
+\begin{minted}{rust}
+let love_chocolate = true;
+let a = if love_chocolate {
+    "Chocolate";
+} else {
+    "Raspberry";
+};
+println!("{:?}", a);
+\end{minted}
+De quel type est \mintinline{rust}{a} il y a t'il une faute de frappe?
+Quelle correction peut-être appliquée?
+\ifprintanswers
+\begin{solution}
+    Deux points virgules se sont glissés et devraient être enlevé sur les deux bras du \mintinline{rust}{if}, sans le point-virgule \mintinline{rust}{a} est de type \mintinline{rust}{&str}.\\ On peut aussi se dire que c'est correct même si c'est du code "inutile" avec le point-virgule \mintinline{rust}{a} est de type \mintinline{rust}{()} dit unit le type qui contiens rien.
+\end{solution}
+\else
+\vspace{2in}
+\fi
+
+\question[1] Super Bonus: Expliquer avec vos mots le concept de \emph{move semantics} (capture ou déplacement en Français).
+\ifprintanswers
+\begin{solution}
+Un \emph{move} ou \emph{déplacement} est l'action lorsque une valeur change de propriétaire (\emph{owner}),
+par exemple lors d'un appel de fonction, une liaison de variable/déclaration avec \mintinline{rust}{let} ou lors d'une capture dans une closure.
+
+Cette liaison(nom de variable) n'est alors plus utilisable ayant été déplacée. Dans le cas ou on désire pas
+de déplacement, ni de copie on peut faire un emprunt \emph{borrow} avec \mintinline{rust}{&}.
+Certains types implementent \emph{Copy et Clone} et donc le problème ne se pose pas exemple: \mintinline{rust}{i32}.
+L'ownership est très pratique pour representer des ressources comme l'accès aux fichiers, on vera cela plus tard.
+\end{solution}
+\else
+\vspace{2in}
+\fi
+
+
+  \end{questions}
+\end{document}

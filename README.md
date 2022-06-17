@@ -19,6 +19,8 @@ il est recommander de commencer par `01-premiers-pas.rs` puis `02-bonjour-toi.rs
 Vous pourrez trouver des [notes](cours/readme.md) dans le dossier `cours`,
 et une [bibliographie](cours/bibliographie.md) avec des liens utiles.
 
+Le dossier [sujets](sujets) contiens d'evaluations sujets déjà utilisées.
+
 > Vos contributions au cours: vous pouvez soumettre des contributions au cours par courriel ou
 > directement dans une merge request ou une issue sur
 > [framagit](https://framagit.org/darnuria/rust-initiation).

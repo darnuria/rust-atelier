@@ -1,0 +1,188 @@
+\documentclass[11pt,a4paper,addpoint]{exam}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[]{lmodern}
+\usepackage[french]{babel}
+%\usepackage{mathtools}
+\usepackage[margin=2cm]{geometry} %layout
+\usepackage{graphicx}
+\usepackage{booktabs} % for much better looking tables
+% Put the bibliography in the ToC
+\usepackage[nottoc,notlof,notlot]{tocbibind}
+% Alter the style of the Table of Contents
+\usepackage[titles]{tocloft}
+\usepackage{multicol}
+
+\usepackage{minted}
+\usepackage{titling}
+\setlength{\droptitle}{-3cm}
+
+\nopointsinmargin
+\pointformat{}
+
+\usepackage[pdfauthor={Axel Viala},
+  pdftitle={Seconde-session 2021-2022: L2 Programmation avancée},
+  pagebackref=true,%
+  colorlinks=true,%
+  linkcolor=green,%
+  %urlcolor=green!70!black,
+  pdftex]{hyperref}
+\usepackage[ampersand]{easylist}
+\renewcommand{\solutiontitle}{}
+
+\author{\normalsize{Axel Viala <axel.viala@darnuria.eu>}}
+\title{\normalsize{\textbf{Seconde-session blanc 2021-2022: Programmation avancée}}}
+
+\begin{document}
+  \maketitle
+  \begin{multicols}{2}
+
+  \makebox[\textwidth][l]{Nom et Prénom:}
+  \makebox[\textwidth][l]{Numéro étudiant:}
+  \end{multicols}
+  \textbf{Objectifs:} La clarté des réponses sera appréciée, veillez à écrire soigneusement. Les questions portent sur le langage Rust.
+  Notes de cours autorisé. Réponse sur une copie a part encouragée. Ce sujet blanc ne comporte pas la question de composition et les questions sont "un peu" plus dures
+  que sur le sujet prévu.
+  \newline
+  \begin{questions}
+
+    \section{Généralités}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+    \question[1] Par défaut doit t'on toujours écrire les types explicitement partout en Rust
+    \begin{checkboxes}
+        \CorrectChoice Non dans le corps des fonctions ne n'est pas neccessaire
+        \choice Il faut écrire les types partout aucune inférence
+    \end{checkboxes}
+
+\question[1] En Rust une référence peut-elle pointer sur rien?:
+ \begin{checkboxes}
+    \choice Une référence peut pointer sur rien temporairement
+    \CorrectChoice Les références doivent toujours référencer quelque chose
+\end{checkboxes}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\question[1] Dans ce code, \mintinline{rust}{m} est passé comment?
+\begin{checkboxes}
+    \CorrectChoice Par deplacement \textit{move}
+    \choice Par référence \textit{borrow} (mut/immutable)
+    \choice Par copie \textit{copy}
+\end{checkboxes}
+\begin{minted}{rust}
+struct Point { x: i32, y:i32 }
+fn mystere(m: Point) -> Point {
+    let mut m = m;
+    m.x += 1;
+    m.y += 42;
+    m
+}
+\end{minted}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\question[1] Anatomie d'un code Rust : associez les termes suivants au code suivant:
+\begin{multicols}{2}
+\begin{itemize}
+    \item Opérateur d'addition
+    \item Nom de variable
+    \item Mot clef de déclaration de variable
+    \item Argument de fonction
+    \item Type
+    \item Mot clef de déclaration de fonction
+    \item Opérateur de d'enchaînement d'instruction
+    \item Bloc du corps de la fonction
+    \item Nom de fonction
+    \item Appel de fonction associée à un type
+    \item Argument de fonction passé en appel
+    \item Expression du if
+\end{itemize}
+\end{multicols}
+\begin{minted}{rust}
+fn inconnue(a: &[i32], i: usize) -> Option<i32> {
+    if a.len() < i {
+        Some(a[i] + 50)
+    } else {
+        None
+    }
+}
+\end{minted}
+\vspace{2in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question[1] Que signifie \mintinline{rust}{T} dans la signature de la fonction \mintinline{rust}{fn mystere<T>(a: T)}.
+\vspace{1in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question[1] Ce code peut-il compiler? Justifiez.
+\begin{minted}{rust}
+fn mystere(a: &mut [i32], b: &i32) {
+    a[0] += *b;
+}
+
+fn main() {
+    let mut a = [1, 2];
+    mystere(&mut a, &a[0]);
+}
+\end{minted}
+\vspace{1in}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question[1] Expliquez ce qu'est un \mintinline{rust}{trait} en Rust.
+\vspace{1in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\question[1] A quoi sert le type \mintinline{rust}{Option<T>} et le type \mintinline{rust}{Result<T, E>}
+\vspace{1in}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question[1] Proposez votre implementation de \mintinline{rust}{MyOption<T>} qui fait comme \mintinline{rust}{Option},
+Et implementer la fonction \mintinline{rust}{MyOption::map} qui dois faire comme la documentation de \mintinline{rust}{Option::map}
+de la lib standard.
+\vspace{3in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question[1] \mintinline{rust}{u32} est il passé par copie ou par move par défaut. 
+\vspace{1in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question[1] Ce code comporte une erreur, laquelle justifiez. Que fait \mintinline{rust}{?}.
+\begin{minted}{rust}
+fn mystere(a: Option<u32>) -> Option<u32> {
+    let a = a?;
+    Some(a + 1);
+}
+\end{minted}
+\vspace{1.5in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question[1] Pour un point realisez une implementation du trait \mintinline{rust}{Display} et \mintinline{rust}{Add} entre deux \mintinline{rust}{Point}.
+\begin{minted}{rust}
+struct Point {
+    x: f32,
+    y: f32,
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{minted}
+\end{questions}
+\end{document}

@@ -1,0 +1,226 @@
+\documentclass[11pt,a4paper,addpoint]{exam}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[]{lmodern}
+\usepackage[french]{babel}
+%\usepackage{mathtools}
+\usepackage[margin=2cm]{geometry} %layout
+\usepackage{graphicx}
+\usepackage{booktabs} % for much better looking tables
+% Put the bibliography in the ToC
+\usepackage[nottoc,notlof,notlot]{tocbibind}
+% Alter the style of the Table of Contents
+\usepackage[titles]{tocloft}
+\usepackage{multicol}
+
+\usepackage{minted}
+\usepackage{titling}
+\setlength{\droptitle}{-3cm}
+
+\nopointsinmargin
+\pointformat{}
+
+\usepackage[pdfauthor={Axel Viala},
+  pdftitle={Seconde-session 2021-2022: L2 Programmation avancée},
+  pagebackref=true,%
+  colorlinks=true,%
+  linkcolor=green,%
+  %urlcolor=green!70!black,
+  pdftex]{hyperref}
+\usepackage[ampersand]{easylist}
+\renewcommand{\solutiontitle}{}
+
+\author{\normalsize{Axel Viala <axel.viala@darnuria.eu>}}
+\title{\normalsize{\textbf{Seconde-session 2021-2022: L2 Programmation avancée}}}
+
+\begin{document}
+  \maketitle
+  \begin{multicols}{2}
+
+  \makebox[\textwidth][l]{Nom et Prénom:}
+  \makebox[\textwidth][l]{Numéro étudiant:}
+  \end{multicols}
+  \textbf{Objectifs:} La clarté des réponses sera appréciée, veillez à écrire soigneusement. Les questions portent sur le langage Rust. Réponse sur une copie a part encouragée. 1 pts par question. Justification encouragée.
+  \begin{questions}
+    \section{Généralités}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\question[1] Typage en Rust est : (plusieurs réponses valides():
+\begin{multicols}{2}
+\begin{checkboxes}
+    \choice Dynamique à l'exécution
+    \CorrectChoice inféré à la compilation
+    \choice Avec classes comme en Java
+    \CorrectChoice Explicite dans les fonctions, traits, structures et enumerations
+    \choice Permet de l’héritage comme en Java
+    \CorrectChoice Permet des types sommes (énums)
+    \choice Explicit partout comme en C
+    \CorrectChoice Traçage par le compilateur des partages de références
+    \choice Pas typé
+\end{checkboxes}
+\end{multicols}
+
+\question[1] Une référence peut elle avoir une valeur \texttt{null} comme en C? Justifiez?
+\vspace{1in}
+
+\question[1] Dans le code ci dessous, qu'afficherait le
+programme s'il appelait \mintinline{rust}{mystere(Some(1 + 1))} une fois? Quelle est la valeur de retour de mystère avec cet appel?
+\begin{minted}{rust}
+fn mystere(a: Option<i32>) -> i32 {
+    match a {
+        Some(n) => { println!("Mon mystère: {}", n); n + 42 },
+        None => 0,
+    }
+}
+\end{minted}
+\vspace{1in}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\question[1] Dans ce code, \mintinline{rust}{m} est passé comment?
+\begin{checkboxes}
+    \CorrectChoice Par déplacement \textit{move}
+    \choice Par référence \textit{borrow} (mut/immutable)
+    \choice Par copie \textit{copy}
+\end{checkboxes}
+\begin{minted}{rust}
+struct MystereStruct { secret: i32 }
+fn mystere(m: &mut MystereStruct) {
+    m.secret += 1;
+}
+\end{minted}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question[1] Toute valeur par exemple une \mintinline{rust}{struct A} hors type de base est:
+ \begin{checkboxes}
+    \choice Pris par référence
+    \CorrectChoice Déplacé
+    \choice Copié
+\end{checkboxes}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question[1] Ce code peut-il compiler si non pourquoi?
+\begin{minted}{rust}
+struct MystereStruct { secret: i32 }
+fn add_thing(m: &mut MystereStruct, o: &MystereStruct, thing: i32) {
+    m.secret += thing + o.secret;
+}
+
+fn main() {
+    let mut a = MystereStruct { secret : 0 };
+    add_thing(&mut a, &a, 1);
+}
+\end{minted}
+\vspace{2in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question[1] En Rust comment exprimez l'absence de quelque chose, en C on utiliserait probablement \texttt{null}, 
+donnez un exemple de code, par exemple une structure personne qui peux avoir une date de naissance ou non.
+\vspace{1in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question[1] Anatomie d'un code Rust : associez les termes suivants au code suivant:
+\begin{multicols}{2}
+\begin{itemize}
+    \item Opérateur d'addition
+    \item Nom de variable de match
+    \item Mot clef de pattern matching/filtrage
+    \item Argument de fonction
+    \item Type
+    \item Mot clef de déclaration de fonction
+    \item Constructeurs de variant de l'enum \texttt{Option}
+    \item Bloc du corps de la fonction
+    \item Nom de fonction
+    \item Appel de fonction associée à un type
+    \item Argument de fonction passé en appel
+    \item Expression du if
+\end{itemize}
+\end{multicols}
+\begin{minted}{rust}
+fn inconnue(o: Option<i32>) -> Option<i32> {
+    match o {
+        Some(i) if i > 18 => Some(i + 50),
+        _ => None,
+    }
+}
+\end{minted}
+\vspace{2in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question[1] Que signifie \mintinline{rust}{T} dans la signature de la fonction \mintinline{rust}{fn mystere<T>(a: T)}.
+\vspace{2in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question[1] Ce code peut-il compiler? Justifiez.
+\begin{minted}{rust}
+.
+fn mystere(mut a: Box<[i32]>, b: &i32) {
+    a[0] += *b;
+}
+
+fn main() {
+    // Box<T> n'implémente pas Copy
+    let a = Box::new([1, 2, 3]);
+    mystere(a, &a[0]);
+    println!("{:?}", a);
+}
+\end{minted}
+\vspace{1in}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question[1] Expliquez ce qu'est un \mintinline{rust}{trait} en Rust donnez un exemple.
+\vspace{1in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\question[1] A quoi sert le type \mintinline{rust}{Option<T>} et le type \mintinline{rust}{Result<T, E>}
+\vspace{1in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question[1] Proposez votre implémentation de \mintinline{rust}{Result<T, E>} qui fait comme \mintinline{rust}{Tesult},
+Et implémenter la fonction \mintinline{rust}{Result::map} qui dois faire comme la documentation de \mintinline{rust}{Result::map}
+de la lib standard.
+\vspace{3in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question[1] \mintinline{rust}{bool} est il passé par copie ou par move par défaut.
+\vspace{1in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question[1] Ce code comporte une ou plusieurs erreurs, laquelle justifiez. Que fait \mintinline{rust}{?}. Justifiez.
+\begin{minted}{rust}
+fn mystere(a: Option<u32>) -> Option<u32> {
+    let a = a?;
+    None(a + 1)
+}
+\end{minted}
+\vspace{1.5in}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\question[1] Pour un point réalisez une implémentation du trait \mintinline{rust}{Debug} et \mintinline{rust}{Mul} entre deux \mintinline{rust}{Point}.
+\begin{minted}{rust}
+struct Triangle {
+    x: f32,
+    y: f32,
+}
+
+\end{minted}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Robot Quest}
+
+\question[1] Implémentez une enum \texttt{Mouvement} qui dois représenter \texttt{Haut, Bas, Droite, Gauche, Avance}.
+\question[1] Programmez une structure représentant un personnage pouvant avoir une position dans l'espace et une orientation.
+\question[1] Réaliser une fonction qui si on lui passe un \texttt{\&[Mouvement]} permet de déplacer un personnage.
+\question[1] Écrivez une fonction qui permet de réaliser des déplacements dans un monde en 2 dimensions, (a vous de choisir la structure) et que si le robot atteint un bord,
+son mouvement n'est pas effectué il n'avance pas et ne fait pas planter le programme, et du \texttt{Monde} est libre, un mouvement par tour de boucle jusque à ce que on ai parcouru tout les mouvements.
+\question[1] Ajouter dans votre représentation du monde des coffres en position (x, y): (1, 1), (5, 6). Si le robot tombe sur un coffre il dois \texttt{println!("Coffre trouvé")}
+La representation des coffres est libre.
+\end{questions}
+\end{document}
+
+
