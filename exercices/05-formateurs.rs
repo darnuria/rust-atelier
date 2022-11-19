@@ -28,18 +28,15 @@ fn main() {
 
     // Pour ne pas déréférencer la variable mais afficher l'adresse
     // vers laquelle elle point on peut utiliser le formateur {:p}
-    //                                        ↓↓
+    //                                       ↓↓
     println!("Notre entier est à l'adresse:  {}", reference);
 
     // Déclarons un vecteur:
     // Ceux-ci se déclarent grâce à la macro vec![]
     let vector = vec![1,2,3];
 
-    // Si on essaye d'en afficher le contenu grâce au formatteur `{}`
-    // On obtient une erreur de compilation:
-    println!("Voici le vector: {}", vector);
-    //                          ^
-    //                          | Ce formatteur ne convient pas pour un `vec`
+    // On peut aussi utiliser `dbg!` pour debugger et obtenir un affichage. :)
+    dbg!(&vector);
 
     // A la place, il nous faut utiliser un formatteur de debug,
     // tel que {:?} ou {:#?}
