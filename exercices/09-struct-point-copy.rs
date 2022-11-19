@@ -5,22 +5,22 @@
 //
 // struct.rs
 //
-// Dans cet exercice on reviens sur la structure Point décrite dans l'exercice 7.
+// Dans cet exercice on revient sur la structure Point décrite dans l'exercice 7.
 // Sauf que cette fois on va lui faire dériver le Trait `Copy` car au fond c'est une petite
 // structure, pourquoi s'embêter avec des références.
 //
 // Objectifs pédagogiques:
 //
 // - Retour sur les structures
-// - Découverte de la syntaxe pour faire des méthodes sur des structures implementant `Copy`
-// - «Passage par copie»
+// - Découverte de la syntaxe pour faire des méthodes sur des structures implémentant `Copy`
+// - « Passage par copie »
 // - Initiation aux Traits
 //
-// Point sur le trait Copy, lorsque on implemente Copy, on ne passe plus par référence, ni par
-// semantiques de mouvement, la structure est passée comme par exemple un entier, elle est copiée
+// Point sur le trait Copy, lorsqu'on implémente Copy, on ne passe plus par référence, ni par
+// sémantiques de mouvement, la structure est passée comme par exemple un entier, elle est copiée
 // bit à bit. C'est problématique si votre structure est grosse, cependant lorsque elle est petite
 // en gros moins de 128 bits cela peut être avantageux.
-// Un autre cas avantageux c'est dans un contexte de programmation concurente ou de redondance.
+// Un autre cas avantageux c'est dans un contexte de programmation concurrente ou de redondance.
 //
 // /!\ Quand vous verrez les symboles: `???`, il s'agit de code à
 // compléter soi-même c'est normal que Rust indique une erreur! :)
@@ -28,13 +28,13 @@
 
 // Étapes:
 //
-// 0. On complête la structure Point2D pour la faire compiler
+// 0. On complète la structure Point2D pour la faire compiler
 // 1. On ajoute une fonction `new` pour creer un Point2D
 // 1.1 Dériver `PartialEq` et `Debug` avec la directive de macro: `#[derive(...)]`
 // 1.2 Dériver le trait `Copy` and `Clone`.
 //   https://doc.rust-lang.org/stable/book/appendix-03-derivable-traits.html#clone-and-copy-for-duplicating-values
 // 2. On associe la fonction `new` avec un bloc `impl Point2D {}`
-// 2. On crée une fonction `add` qui fait l'addition de 2 `Points2D`, `self` et  `p`
+// 2. On crée une fonction `add` qui fait l'addition de 2 `Points2D`, `self` et `p`
 // 2.0 Observer ce qui se passe si on tente de réutiliser un des deux arguments de `add`!
 // 2.1 Reprendre `add`, pour que ce soit une implementation du trait `std::ops::Add`
 //   - https://doc.rust-lang.org/std/ops/trait.Add.html
@@ -53,7 +53,7 @@ struct Point2D {
     y: i32,
 }
 // ⬆
-// struct defini un reccord/enregistrement un pack de types
+// struct définit un record/enregistrement un pack de types
 
 impl Point2D {
     // Le type Self vaut le type après `impl`
@@ -136,7 +136,7 @@ mod tests {
     #[test]
     fn test_fmt() {
         let a = Point2D::new(1, 2);
-        // Vous pouvez changer le test et la doc si la facon d'fficher conviens pas! :)
+        // Vous pouvez changer le test et la doc si la facon d'afficher convient pas ! :)
         assert_eq!("Point (1, 0)", format!("{}", a));
         assert_eq!(c, e);
     }
