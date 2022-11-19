@@ -39,6 +39,7 @@
  */
 fn main() {
     // On associe, avec let, -40 à la variable fahrenheit.
+    // le symbole du degrée fahrenheit est `°F`.
     let fahrenheit = -40;
 
     //-------------------------------------------------
@@ -59,6 +60,8 @@ fn main() {
     // quel autre type, tel que une chaine de caratère.
 
     let celsius = ???;
+    // Todo: penser a changer les `???` en le bon nombre qui represente
+    // une temperature. ;)
     //-------------------------------------------------
 
     // Comme fait dans l'exercice avec le «hello-world» avec votre prénom,
@@ -66,7 +69,7 @@ fn main() {
     // Les symboles: `{}` indiquent un emplacement de formatage ou sera
     // inséré votre expression à afficher.
     // Cela permet de faire des affichages riches c'est très utilisé en Rust.
-    println!("{}°F équivaut à {}°C", ???, ???);
+    println!("{}°F équivaut à {}°C.", fahrenheit, ???);
     // Fin de notre programme de conversion.
 }
 
