@@ -1,6 +1,6 @@
 // -----------------------------------------------------------------------------
 // Atelier Rust Journée du Logiciel Libre
-// 2022-04-03 - 11h
+// 2022-11-19 - 16h30h
 // Animateur: Axel (darnuria) && Aurelia
 //
 // nombres.rs
