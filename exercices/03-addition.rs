@@ -15,7 +15,7 @@
 // - Manipuler des nombres
 // -----------------------------------------------------------------------------
 
-// Typage ça se mange?:
+// Typage ça se mange ?:
 
 // En Rust les expressions portent un type et comme l'expression populaire suivante
 // le dit: On ne peut pas additionner les choux et les carottes.
@@ -27,7 +27,7 @@
 // - main: les fonctions qui sont un type un peu avancé ;)
 
 fn main() {
-    // L'objectif est de faire une addition entre deux entiers en Rust! Rien de bien terrible!
+    // L'objectif est de faire une addition entre deux entiers en Rust ! Rien de bien terrible !
 
     //-------------------------------------------------------------------------
     // Quelques «commentaires gesticulés» pour comprendre:
@@ -45,15 +45,15 @@ fn main() {
     //     car '3' n'est pas un `i32` !
     //-------------------------------------------------------------------------
 
-    // Petite aide pour s'assurer qu'on a bien reussi a ecrire 6 :)
-    // `assert!` est une macro qui permet de verifier une assertion pour
-    // verifier qu'on a le bon comportement :)
+    // Petite aide pour s'assurer qu'on a bien réussi a écrire 6 :)
+    // `assert!` est une macro qui permet de vérifier une assertion pour
+    // vérifier qu'on a le bon comportement :)
     assert!(somme == 6i32);
 
-    // Oh non ! Une erreur s'est glissée dans notre programme à la ligne 38.
-    // Par inadvertance, j'ai tapé le caractère '3' au lieu de 3.
+   // Oh non ! Une erreur s'est glissée dans notre programme à la ligne 38.
+   // Par inadvertance, j'ai tapé le caractère '3' au lieu de 3.
 
-    // Compilons ce programme et voyons si rustc peut nous aider!
+   // Compilons ce programme et voyons si rustc peut nous aider!
     println!("{}", somme);
 }
 
