@@ -53,8 +53,8 @@
 /// assert_eq!(is_leap_year(2400, true))
 /// ```
 fn is_leap_year(year: u32) -> bool {
-    // Cette macro crash le programme si appellée pratique pour écrire
-    // un skelette de fonction et ensuite programmer.
+    // Cette macro crash le programme si appellée.
+    // Pratique pour écrire un squelette de fonction et ensuite programmer.
     unimplemented!("C'est à vous de jouer! ;)")
 }
 
@@ -69,8 +69,8 @@ fn main() {
     println!("As tu pensé à executer les test avec rustc --test main? :)")
 }
 
-// Partie réservée au tests!
-// Editez si vous le désirez mais attention a pas tout casser. ;)
+// Partie réservée aux tests!
+// Éditez si vous le désirez mais attention à pas tout casser. ;)
 #[cfg(test)]
 mod test {
     use super::is_leap_year;
