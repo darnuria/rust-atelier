@@ -207,8 +207,4 @@ l'analyseur de Rust:
 
 `rustup component add rust-analysis`
 
-Puis le serveur de compilation pour l'editeur de code:
-
-`rustup component add rls`
-
 Il en existe d'autre nous le verrons plus tard.
