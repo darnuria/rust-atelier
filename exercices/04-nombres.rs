@@ -5,14 +5,14 @@
 //
 // nombres.rs
 //
-// Dans cet exercice vous allez réaliser un convertiseur de degrés Fahrenheit
+// Dans cet exercice vous allez réaliser un convertisseur de degrés Fahrenheit
 // vers les degrés Celsius.
 //
 // Objectifs pédagogiques:
 //
 // - Manipulation des nombres
 // - Approfondissement variables
-// - Découverte du formattage
+// - Découverte du formatage
 // - Concept d'expression
 // - Opérations entre types
 //
@@ -20,7 +20,7 @@
 // - Découverte des Fonctions
 //
 // /!\ Quand vous verrez les symboles: `???`, il s'agit de code à
-// completer soit-même c'est normal que Rust indique une erreur! :)
+// compléter soi-même c'est normal que Rust indique une erreur ! :)
 // -----------------------------------------------------------------------------
 
 
@@ -42,7 +42,7 @@ fn main() {
     // le symbole du degrée fahrenheit est `°F`.
     let fahrenheit = -40;
 
-    //-------------------------------------------------
+    // ------------------------------------------------
     // Ci-dessous on va faire notre conversion en Rust:
 
     // Mémo des opérateurs d'arithmétique sur les nombres courants
@@ -54,20 +54,20 @@ fn main() {
     // | a * b     | Multiplication    |
     // | a / b     | Division          |
     // ---------------------------------
-    // Petite découverte du typage:
-    // a et b sont des nombres ici! En Rust une expression telle que 5 a un type
+    // Petite découverte du typage :
+    // a et b sont des nombres ici ! En Rust une expression telle que 5 a un type
     // ici le type `i32` et on ne peut pas additionner un `i32` avec n'importe
     // quel autre type, tel que une chaine de caratère.
 
     let celsius = ???;
-    // Todo: penser a changer les `???` en le bon nombre qui represente
+    // Todo: penser à changer les `???` en le bon nombre qui représente
     // une temperature. ;)
     // Rust va vous perturber un peu en demandant une expression, comprenez un nombre!
     //-------------------------------------------------
 
     // Comme fait dans l'exercice avec le «hello-world» avec votre prénom,
-    // on va afficher dans le terminal une chaine de caractère formaté.
-    // Les symboles: `{}` indiquent un emplacement de formatage ou sera
+    // on va afficher dans le terminal une chaine de caractère formatée.
+    // Les symboles: `{}` indiquent un emplacement de formatage où sera
     // inséré votre expression à afficher.
     // Cela permet de faire des affichages riches c'est très utilisé en Rust.
     println!("{}°F équivaut à {}°C.", fahrenheit, ???);
