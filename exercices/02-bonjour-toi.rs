@@ -53,7 +53,7 @@ fn main() {
     // On fera comme si c'était une fonction classique!
 
     // On peut faire la même chose avec des nombres:
-    let age = 29;
+    let age = 30;
     println!(
         "{} a {} ans, c'est un bon age pour programmer.",
         prenom, age
