@@ -12,7 +12,7 @@
 //
 // Objectifs pédagogiques:
 //
-// - Utilisation des vecteurs (tableaux aggrandissables)
+// - Utilisation des vecteurs (tableaux agrandissables)
 //   https://doc.rust-lang.org/stable/book/ch08-01-vectors.html?#creating-a-new-vector
 // - Boucles `for`:
 //   https://doc.rust-lang.org/stable/book/ch03-05-control-flow.html#looping-through-a-collection-with-for
@@ -30,16 +30,16 @@
 // 1. On extrait dans une fonction
 //    https://doc.rust-lang.org/stable/book/ch03-03-how-functions-work.html#functions
 // 2. On fait la somme sur un vec!
-// 2.1 On va eviter de deplacer le vecteur c'est dommage de le detruire si on veux
-//     veux juste la somme!
+// 2.1 On va éviter de déplacer le vecteur c'est dommage de le détruire si on veut
+//     juste la somme!
 // 2.2 On utilise une slice plutôt qu'une reférence sur un vecteur
 //    https://doc.rust-lang.org/stable/book/ch04-03-slices.html#the-slice-type
 // 3. On refait avec une closure et une fonction d'ordre supérieur (fold)
-// 4. Bonus: Il existe une formule mathematique pour faire la somme sans boucle! ;)
+// 4. Bonus: Il existe une formule mathématique pour faire la somme sans boucle! ;)
 //    https://fr.wikipedia.org/wiki/Somme_(arithm%C3%A9tique)
-// 4.1 Bonus: Faire sans boucle mais avec un range et la fonction mathematique!
+// 4.1 Bonus: Faire sans boucle mais avec un range et la fonction mathématique!
 
-/// Calcule la somme de `start` a `end_excluded`.
+/// Calcule la somme de `start` à `end_excluded`.
 fn sum(start: u32, end_excluded: u32) -> i32 {
     unimplemented!("Etape 1. Avec une fonction");
 }
@@ -65,7 +65,7 @@ fn sum_range(range: std::ops::Range<u32>) -> u32 {
     let begin = range.start;
     let end = range.end;
     let sum = 0;
-    // Ici la petite fonction mathematique voir au dessus pour le lien wikipedia
+    // Ici la petite fonction mathématique voir au dessus pour le lien wikipedia
     // C'est aussi possible de le faire avec une boucle ;)
     0
 }
@@ -83,31 +83,31 @@ fn main() {
 
     println!("Somme: {}", sum);
 
-    // 1.0 Avec une fonction et en parametre le debut et la fin
+    // 1.0 Avec une fonction et en paramètre le début et la fin
 
     // 2.0 Somme mais sur un vec
     let my_vector = vec![1,2,3,4,5];
 
-    // 2.1 Somme sur un vec mais on prends par reference:
-    // Pour avoir une reference ecrivez `&my_vector` ;)
+    // 2.1 Somme sur un vec mais on prend par référence:
+    // Pour avoir une référence écrivez `&my_vector` ;)
 
-    // 2.2 Pour obtenir une slice on a plusieurs facons!
+    // 2.2 Pour obtenir une slice on a plusieurs façons !
     // Juste `&my_vector` vous donnera une slice c'est un peu magique
-    // ou comme l'exemple en dessous pour obteir un "sous bout" de notre vecteur
+    // ou comme l'exemple en dessous pour obtenir un "sous bout" de notre vecteur
     let just_the_two_first_numbers = &my_vector[0..=1];
 
     ////////////////////////////////////////////////////////////////////////////////
-    // C'est plus avancer apres hesitez pas a passer aux autres et revenir apres! //
+    // C'est plus avancé après, hesitez pas à passer aux autres et revenir après! //
     ////////////////////////////////////////////////////////////////////////////////
 
-    // 3.0 Ici ecrire une nouvelle fonction mais en utilisant un iterateur. :)
-    // Help: On peut ecrire `[0,1,2,3].iter().fold(0, |n| { ??? })`.
-    // ??? c'est la ou c'est a vous de jouer! :)
+    // 3.0 Ici écrire une nouvelle fonction mais en utilisant un itérateur. :)
+    // Help: On peut écrire `[0,1,2,3].iter().fold(0, |n| { ??? })`.
+    // ??? c'est là où c'est à vous de jouer ! :)
 
-    // 4.0 Bonus: Implementer avec une fonction sans boucle ni vecteur via
+    // 4.0 Bonus: Implémenter avec une fonction sans boucle ni vecteur via
     // une fonction :)
 
-    // 4.1 Ici on reprends le range du debut mais on le passe a une fonction et on fait comme dans
+    // 4.1 Ici on reprend le range du début mais on le passe à une fonction et on fait comme dans
     // 4.0!
 
     // let range = 0..10; // On peut avec le last avec .start et .end sur range :
