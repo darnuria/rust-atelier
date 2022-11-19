@@ -23,7 +23,7 @@
 // Un autre cas avantageux c'est dans un contexte de programmation concurente ou de redondance.
 //
 // /!\ Quand vous verrez les symboles: `???`, il s'agit de code à
-// completer soit-même c'est normal que Rust indique une erreur! :)
+// compléter soi-même c'est normal que Rust indique une erreur! :)
 // -----------------------------------------------------------------------------
 
 // Étapes:

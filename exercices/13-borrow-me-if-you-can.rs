@@ -15,7 +15,7 @@
 // Tenter de compiler ce code, observer, se creuser la tête.
 //
 // /!\ Quand vous verrez les symboles: `???`, il s'agit de code à
-// completer soit-même c'est normal que Rust indique une erreur! :)
+// compléter soi-même c'est normal que Rust indique une erreur! :)
 // -----------------------------------------------------------------------------
 
 // Etapes:

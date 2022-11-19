@@ -19,7 +19,7 @@
 // - Notions sur les macro et fonctions
 //
 // /!\ Quand vous verrez les symboles: `???`, il s'agit de code à
-// completer soit-même c'est normal que Rust indique une erreur! :)
+// compléter soi-même c'est normal que Rust indique une erreur! :)
 // -----------------------------------------------------------------------------
 
 // À faire: Modifier le programme pour qu'il affiche votre prénom et votre age.
