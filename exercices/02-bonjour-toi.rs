@@ -3,7 +3,7 @@
 // 2022-11-19 - 16h30h
 // Animateur: Axel (darnuria) && Aurelia
 //
-// 02-bonjour-rust.rs
+// 02-bonjour-toi.rs
 //
 // Dans cet exercice vous allez découvrir les chaines de caractères un *type*
 // très utile, comment en afficher et comment les formater, aussi vous découvrirez
