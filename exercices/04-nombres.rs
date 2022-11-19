@@ -62,6 +62,7 @@ fn main() {
     let celsius = ???;
     // Todo: penser a changer les `???` en le bon nombre qui represente
     // une temperature. ;)
+    // Rust va vous un peu en demandant une expression comprenez un nombre!
     //-------------------------------------------------
 
     // Comme fait dans l'exercice avec le «hello-world» avec votre prénom,
