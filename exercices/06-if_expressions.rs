@@ -71,6 +71,7 @@ fn main() {
 
 // Partie réservée au tests!
 // Editez si vous le désirez mais attention a pas tout casser. ;)
+#[cfg(test)]
 mod test {
     use super::is_leap_year;
     fn help_leapyear_case(year: u32, expected: bool) {
