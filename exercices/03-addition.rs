@@ -15,7 +15,6 @@
 // - Manipuler des nombres
 // -----------------------------------------------------------------------------
 
-
 // Typage ça se mange?:
 
 // En Rust les expressions portent un type et comme l'expression populaire suivante
@@ -27,10 +26,8 @@
 // - 3: `i32` (nombre entiers) par exemple
 // - main: les fonctions qui sont un type un peu avancé ;)
 
-
 fn main() {
     // L'objectif est de faire une addition entre deux entiers en Rust! Rien de bien terrible!
-
 
     //-------------------------------------------------------------------------
     // Quelques «commentaires gesticulés» pour comprendre:

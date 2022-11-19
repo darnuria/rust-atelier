@@ -17,7 +17,7 @@
 // -----------------------------------------------------------------------------
 
 // Etapes:
-// 
+//
 // 1. Observer l'erreur de compilation
 // 2. Corriger autant que neccessaire le code pour faire compiler
 // le programme.

@@ -19,12 +19,12 @@
 // -----------------------------------------------------------------------------
 
 // Etapes:
-// 
+//
 // 1. Observer l'erreur de compilation
 // 2. Corriger autant que neccessaire le code pour faire compiler
 // le programme.
 
-// Questions: 
+// Questions:
 // 0.0 Pourquoi ce code ne peut pas compiler?
 // 1.0 Comment réussir a avoir un code qui permet d'afficher l'element 1 après le remove?
 // 2.0 Comment faire si le contenu du vector implemente pas le trait `Copy`?

@@ -42,7 +42,6 @@
 //   -
 // 2.3 Écrire quelques tests pour nos fonctions
 
-
 // Ex: 2.1
 // `use` permet d'importer du code d'autres modules dans la même crate ou non.
 use std::ops::Add; // ici on importe le trait Add.
@@ -56,7 +55,8 @@ struct Point2D {
 // ⬆
 // struct defini un reccord/enregistrement un pack de types
 
-impl Point2D { // Le type Self vaut le type après `impl`
+impl Point2D {
+    // Le type Self vaut le type après `impl`
 
     /// Construct a point from 2 `i32`.
     /// ```
@@ -108,9 +108,6 @@ impl fmt::Display for Point2D {
         write!(fmt, "Coucou je ne suis pas un {}!", "point")
     }
 }
-
-
-
 
 fn main() {}
 // Pour commencer à écrire les tests il faudra décomenter le bloc ci-dessous:

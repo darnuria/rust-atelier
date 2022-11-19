@@ -9,10 +9,12 @@ Rust est un langage complexe donc n'hésitez pas a poser des questions!
 Vous preferez être très autonomes? Lancez vous directement dans [rustlings](https://github.com/rust-lang/rustlings/) après
 une installation de Rust et Cargo!
 
-## Les exercices d'atelier!
+## Les exercices d'atelier
 
 Les exercices d'ateliers sont dans le dossier [exercices](exercices),
 il est recommander de commencer par `01-premiers-pas.rs` puis `02-bonjour-toi.rs`.
+
+-
 
 ## Notes
 
@@ -61,8 +63,8 @@ Pensez à installer l'addon Rust!
 Quelques liens pour les personnes qui désireraient utiliser [emacs](https://www.gnu.org/software/emacs/)
 avec [spacemacs](https://www.spacemacs.org/) ou [vim](https://www.vim.org/) ou [neovim](https://neovim.io/) pour Rust:
 
-* Vim: <https://opensource.com/article/20/7/vim-rust-ide>
-* Emacs avec Spacemacs: <https://github.com/rust-lang/rust-mode>
+- Vim: <https://opensource.com/article/20/7/vim-rust-ide>
+- Emacs avec Spacemacs: <https://github.com/rust-lang/rust-mode>
 
 > *Note:* Spacemacs est une configuration rapide a l'emploi pour emacs version
 > 25 ou supérieure qui simplifie l'usage de emacs.
@@ -187,16 +189,16 @@ si vous ouvrez un terminal dans votre editeur/IDE!
 Si vous ne souhaitez pas vous faire un compte sur exercism vous pouvez pratiquer
 en clonant le dépot : <https://github.com/exercism/rust/>
 
-* [Exercism.io](https://exercism.io/tracks/rust) bases d'exercices en licence
+- [Exercism.io](https://exercism.io/tracks/rust) bases d'exercices en licence
 libre
 
 ### Documentation et références
 
 Beaucoup des ressources seront en anglais, en cours je tenterais de françiser les explications.
 
-* [The Rust programming Language](https://doc.rust-lang.org/book/) Livre d'apprentissage de référence
-* [Documentation de la bibliothèque standard](https://doc.rust-lang.org/std/) : Indispensable
-* [Rust by exemple](https://doc.rust-lang.org/stable/rust-by-example/) Rust illustré par des exemples
+- [The Rust programming Language](https://doc.rust-lang.org/book/) Livre d'apprentissage de référence
+- [Documentation de la bibliothèque standard](https://doc.rust-lang.org/std/) : Indispensable
+- [Rust by exemple](https://doc.rust-lang.org/stable/rust-by-example/) Rust illustré par des exemples
 
 En français vous pourrez aussi trouver le tutoriel de [Guillaume Gomez](https://github.com/GuillaumeGomez/), avoir une seconde façon ou troisième façon d'approcher un problème peut vous débloquer: <https://blog.guillaume-gomez.fr/Rust>
 

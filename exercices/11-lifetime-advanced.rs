@@ -17,7 +17,7 @@
 // -----------------------------------------------------------------------------
 
 // Etapes:
-// 
+//
 // 1. Observer l'erreur de lifetime à la compilation
 // 2. Corriger autant que neccessaire le code pour faire compiler
 // le programme.
@@ -44,7 +44,7 @@ fn smallest(w: &[i32]) -> &i32 {
 /// Comme `smallest_lifetime` mais avec des lifetime explicites
 /// Utilisez les erreurs de compilation pour corriger la signature
 /// de type.
-fn smallest_lifetime<'a>(w: &'a[i32], v: &'a[i32]) -> &'a i32 {
+fn smallest_lifetime<'a>(w: &'a [i32], v: &'a [i32]) -> &'a i32 {
     // Mais souvent on dois les écrires soit même,
     // Ici ce n'était aps obligé mais pour s'habituer
     // nous allons le faire.
@@ -63,14 +63,14 @@ fn smallest_lifetime<'a>(w: &'a[i32], v: &'a[i32]) -> &'a i32 {
     }
     if e < s {
         e
-    } else { 
+    } else {
         s
     }
 }
 
 fn main() {
     let a = [5, 2, 1, 6, 7, 3, 1, 3, 0, 1];
-    let b = [5, 4, 1, -1, 2 , 1, 3, 0, 1];
+    let b = [5, 4, 1, -1, 2, 1, 3, 0, 1];
     let s_ellided = smallest(&a);
     let s_lifetime = smallest_lifetime(&a, &b);
     assert_eq!(*s_lifetime, -1);

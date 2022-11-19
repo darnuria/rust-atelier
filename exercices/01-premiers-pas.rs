@@ -39,11 +39,10 @@
 |      |                                                                        */
 fn main() {
 /* ^
-   \ main est le nom de notre fonction.
+    \ main est le nom de notre fonction.
 /- Les accolades servent à découper des blocs en Rust ici le bloc de notre fonction!
 | */
 }
-
 
 // Félicitation! Voici notre premier programme Rust. Il ne fait rien! :)
 // Vous pouvez le compiler avec la commande : `rustc premiers-pas.rs`

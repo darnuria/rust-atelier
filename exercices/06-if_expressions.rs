@@ -60,10 +60,14 @@ fn is_leap_year(year: u32) -> bool {
 
 fn main() {
     let year = 1900;
-    println!("{} est une année: {}", year, if is_leap_year(year) { "bissextile" } else { "commune" });
+    let type_annee = if is_leap_year(year) {
+        "bissextile"
+    } else {
+        "commune"
+    };
+    println!("{} est une année: {}", year, type_annee,);
     println!("As tu pensé à executer les test avec rustc --test main? :)")
 }
-
 
 // Partie réservée au tests!
 // Editez si vous le désirez mais attention a pas tout casser. ;)

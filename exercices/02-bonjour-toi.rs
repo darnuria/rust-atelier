@@ -22,9 +22,7 @@
 // completer soit-même c'est normal que Rust indique une erreur! :)
 // -----------------------------------------------------------------------------
 
-
 // À faire: Modifier le programme pour qu'il affiche votre prénom et votre age.
-
 
 fn main() {
     println!("Bienvenu dans l'atelier d'initiation à Rust!");
@@ -56,7 +54,10 @@ fn main() {
 
     // On peut faire la même chose avec des nombres:
     let age = 26;
-    println!("{} a {} ans, c'est un bon age pour programmer.", prenom, age);
+    println!(
+        "{} a {} ans, c'est un bon age pour programmer.",
+        prenom, age
+    );
 }
 
 
