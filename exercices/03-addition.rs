@@ -34,9 +34,9 @@ fn main() {
     //
     //           '3' est du type `char`
     //           ⬇
-    let somme = '3' + 3;
+    let somme = '3' + 3i32;
     //   ^          ^ ^
-    //   |          | \ 3 est du type i32.
+    //   |          | \ 3 est du type `i32` on a mis le petit `integer`
     //   |          |
     //   |          \ Ici `+` fait l'addition entre un i32 et un i32 et
     //   |            et le résultat sera un i32.
@@ -45,6 +45,10 @@ fn main() {
     //     car '3' n'est pas un `i32` !
     //-------------------------------------------------------------------------
 
+    // Petite aide pour s'assurer qu'on a bien reussi a ecrire 6 :)
+    // `assert!` est une macro qui permet de verifier une assertion pour
+    // verifier qu'on a le bon comportement :)
+    assert!(somme == 6i32);
 
     // Oh non ! Une erreur s'est glissée dans notre programme à la ligne 38.
     // Par inadvertance, j'ai tapé le caractère '3' au lieu de 3.

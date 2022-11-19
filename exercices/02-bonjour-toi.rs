@@ -58,6 +58,10 @@ fn main() {
         "{} a {} ans, c'est un bon age pour programmer.",
         prenom, age
     );
+
+    // Autre possibilité: On peut directement ecrire les variables
+    // dans la chaine!
+    println!("Coucou {prenom}, tu as {age} ans.");
 }
 
 
