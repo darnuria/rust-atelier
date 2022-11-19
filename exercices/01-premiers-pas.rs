@@ -45,7 +45,7 @@ fn main() {
 }
 
 // Félicitation! Voici notre premier programme Rust. Il ne fait rien! :)
-// Vous pouvez le compiler avec la commande : `rustc premiers-pas.rs`
+// Vous pouvez le compiler avec la commande : `rustc 01-premiers-pas.rs`
 //
 // Et l'executer avec la commande `./premiers-pas` ou le tester dans le playground rust
 // https://play.rust-lang.org
