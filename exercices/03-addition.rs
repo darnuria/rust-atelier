@@ -23,8 +23,15 @@
 // Jusqu'ici nous avons manipulé les types:
 //
 // - "Toto": `&str` (les chaînes de caractères)
-// - 3: `i32` (nombre entiers) par exemple
+// - 3: `u32` (nombre entiers) par exemple
 // - main: les fonctions qui sont un type un peu avancé ;)
+//
+// Aller plus loin:
+//
+// En Rust les nombres sont les nombres que votre processeur peut supporter!
+// Un u32 sera sur 32bits! Un u16 sur 16bits, u8 sur 8 bits.
+// C'est important? Au tout debut pas trop, mais quand on est plus a l'aise
+// en rust et prog systeme c'est utile comme distinction!
 
 fn main() {
     // L'objectif est de faire une addition entre deux entiers en Rust ! Rien de bien terrible !
@@ -34,26 +41,26 @@ fn main() {
     //
     //           '3' est du type `char`
     //           ⬇
-    let somme = '3' + 3i32;
+    let somme = '3' + 3u32;
     //   ^          ^ ^
-    //   |          | \ 3 est du type `i32` on a mis le petit `integer`
+    //   |          | \ 3 est du type `u32` on a mis le petit `integer`
     //   |          |
-    //   |          \ Ici `+` fait l'addition entre un i32 et un i32 et
-    //   |            et le résultat sera un i32.
+    //   |          \ Ici `+` fait l'addition entre un u32 et un u32 et
+    //   |            et le résultat sera un u32.
     //   |
     //   \ Rust n'arrive donc pas à trouver un bon type pour `somme`,
-    //     car '3' n'est pas un `i32` !
+    //     car '3' n'est pas un `u32` !
     //-------------------------------------------------------------------------
 
     // Petite aide pour s'assurer qu'on a bien réussi a écrire 6 :)
     // `assert!` est une macro qui permet de vérifier une assertion pour
     // vérifier qu'on a le bon comportement :)
-    assert!(somme == 6i32);
+    assert!(somme == 6u32);
 
-   // Oh non ! Une erreur s'est glissée dans notre programme à la ligne 38.
-   // Par inadvertance, j'ai tapé le caractère '3' au lieu de 3.
+    // Oh non ! Une erreur s'est glissée dans notre programme à la ligne 38.
+    // Par inadvertance, j'ai tapé le caractère '3' au lieu de 3.
 
-   // Compilons ce programme et voyons si rustc peut nous aider!
+    // Compilons ce programme et voyons si rustc peut nous aider!
     println!("{}", somme);
 }
 
