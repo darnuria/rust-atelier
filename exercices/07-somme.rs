@@ -40,11 +40,13 @@
 // 4.1 Bonus: Faire sans boucle mais avec un range et la fonction mathématique!
 
 /// Calcule la somme de `start` à `end_excluded`.
-fn sum(start: u32, end_excluded: u32) -> i32 {
+/// Par exemple avec une formule mathematique ou une boucle for/while
+fn sum(start: u32, end_excluded: u32) -> u32 {
     unimplemented!("Etape 1. Avec une fonction");
 }
 
 /// Calcule la somme des elements d'un `vec` de `u32`.
+/// Exemple avec une boucle for sur les elements vecteur.
 fn sum_vec(vec: Vec<u32>) -> u32 {
     unimplemented!("Etape 2. A faire avec un vec!");
 }
